@@ -82,7 +82,7 @@ $SUBSET_BAM --bam "$input_bam" --cell-barcodes "$pathogen_barcodes" --out-bam "$
 ```
 
 # Step 4: Convert filtered BAM files to FASTQ using 10x's bamtofastq
-echo "Converting plant BAM to FASTQ..."
+```echo "Converting plant BAM to FASTQ..."
 #mkdir -p "$plant_fastq_dir"
 $BAMTOFASTQ "$plant_bam" "$plant_fastq_dir"
 
@@ -91,7 +91,7 @@ echo "Converting pathogen BAM to FASTQ..."
 $BAMTOFASTQ "$pathogen_bam" "$pathogen_fastq_dir"
 
 echo "Process complete! FASTQ files for plant and pathogen are saved in their respective directories."
-
+```
 ### Process FASTQ Files_Run Cell Ranger Count 
 
 
