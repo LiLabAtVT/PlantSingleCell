@@ -43,21 +43,21 @@ Function: Splits BAM by barcode and converts to FASTQ
 #SBATCH --account=introtogds                     # Replace with your valid account
 
 # Define paths to custom tools
-```BAMTOFASTQ="/projects/intro2gds/Razan_2024/scRNA_Seq_Arab/10X_Pos24hpi_Bam_file_Barcode_File/Pos24hpi_1/10_31_24/bamtofastq_linux"```
-SUBSET_BAM="/projects/intro2gds/Razan_2024/scRNA_Seq_Arab/10X_Pos24hpi_Bam_file_Barcode_File/Pos24hpi_1/10_31_24/subset-bam_linux"
+```BAMTOFASTQ="/projects/intro2gds/Razan_2024/scRNA_Seq_Arab/10X_Pos24hpi_Bam_file_Barcode_File/Pos24hpi_1/10_31_24/bamtofastq_linux"
+SUBSET_BAM="/projects/intro2gds/Razan_2024/scRNA_Seq_Arab/10X_Pos24hpi_Bam_file_Barcode_File/Pos24hpi_1/10_31_24/subset-bam_linux"```
 
 # Define input files and output directories with unique timestamps
-input_bam="possorted_genome_Pos24hpi_1_bam.bam"        # Main BAM file
+```input_bam="possorted_genome_Pos24hpi_1_bam.bam"        # Main BAM file
 plant_barcodes="arabidopsis_barcodes.txt"              # Plant barcodes file
 pathogen_barcodes="pcap_barcodes.txt"                  # Pathogen barcodes file
 plant_bam="plant_reads.bam"                            # Filtered plant BAM
 pathogen_bam="pathogen_reads.bam"                      # Filtered pathogen BAM
 timestamp=$(date +"%Y%m%d_%H%M%S")                     # Unique timestamp for output
 plant_fastq_dir="./plant_fastq_output_$timestamp"      # Unique directory for plant FASTQ files
-pathogen_fastq_dir="./pathogen_fastq_output_$timestamp" # Unique directory for pathogen FASTQ files
+pathogen_fastq_dir="./pathogen_fastq_output_$timestamp" # Unique directory for pathogen FASTQ files```
 
 # Step 1: Index the main BAM file if not already indexed
-if [ ! -f "${input_bam}.bai" ]; then
+```if [ ! -f "${input_bam}.bai" ]; then
     echo "Indexing BAM file..."
     samtools index "$input_bam"
 fi
@@ -72,13 +72,14 @@ if [ -f "$pathogen_bam" ]; then
     echo "Removing existing pathogen BAM file..."
     rm -f "$pathogen_bam"
 fi
-
+```
 # Step 3: Filter BAM file for plant and pathogen reads using subset-bam
-echo "Filtering BAM file for plant-specific reads..."
+```echo "Filtering BAM file for plant-specific reads..."
 $SUBSET_BAM --bam "$input_bam" --cell-barcodes "$plant_barcodes" --out-bam "$plant_bam"
 
 echo "Filtering BAM file for pathogen-specific reads..."
 $SUBSET_BAM --bam "$input_bam" --cell-barcodes "$pathogen_barcodes" --out-bam "$pathogen_bam"
+```
 
 # Step 4: Convert filtered BAM files to FASTQ using 10x's bamtofastq
 echo "Converting plant BAM to FASTQ..."
