@@ -43,7 +43,7 @@ Function: Splits BAM by barcode and converts to FASTQ
 #SBATCH --account=introtogds                     # Replace with your valid account
 
 # Define paths to custom tools
-BAMTOFASTQ="/projects/intro2gds/Razan_2024/scRNA_Seq_Arab/10X_Pos24hpi_Bam_file_Barcode_File/Pos24hpi_1/10_31_24/bamtofastq_linux"
+```BAMTOFASTQ="/projects/intro2gds/Razan_2024/scRNA_Seq_Arab/10X_Pos24hpi_Bam_file_Barcode_File/Pos24hpi_1/10_31_24/bamtofastq_linux"```
 SUBSET_BAM="/projects/intro2gds/Razan_2024/scRNA_Seq_Arab/10X_Pos24hpi_Bam_file_Barcode_File/Pos24hpi_1/10_31_24/subset-bam_linux"
 
 # Define input files and output directories with unique timestamps
