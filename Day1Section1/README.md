@@ -37,16 +37,15 @@ Function: Splits BAM by barcode and converts to FASTQ
 #SBATCH --cpus-per-task=4                        # Number of CPU cores per task
 #SBATCH --mem=16G                                # Memory per node (in GB)
 #SBATCH --time=20:00:00                          # Time limit (hh:mm:ss)
-#SBATCH --mail-user=arazan@vt.edu                # Email address for job notifications
 #SBATCH --mail-type=ALL                          # Send email at beginning and end of job
 #SBATCH --output=filter_convert_10X_%j.out           # Standard output log
 #SBATCH --account=introtogds                     # Replace with your valid account
-
+```
 # Define paths to custom tools
 BAMTOFASTQ="/projects/intro2gds/Razan_2024/scRNA_Seq_Arab/10X_Pos24hpi_Bam_file_Barcode_File/Pos24hpi_1/10_31_24/bamtofastq_linux"
 SUBSET_BAM="/projects/intro2gds/Razan_2024/scRNA_Seq_Arab/10X_Pos24hpi_Bam_file_Barcode_File/Pos24hpi_1/10_31_24/subset-bam_linux"
 ```
-
+```
 # Define input files and output directories with unique timestamps
 ```input_bam="possorted_genome_Pos24hpi_1_bam.bam"        # Main BAM file
 plant_barcodes="arabidopsis_barcodes.txt"              # Plant barcodes file
