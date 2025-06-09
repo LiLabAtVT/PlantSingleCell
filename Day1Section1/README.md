@@ -55,15 +55,15 @@ pathogen_bam="pathogen_reads.bam"                      # Filtered pathogen BAM
 timestamp=$(date +"%Y%m%d_%H%M%S")                     # Unique timestamp for output
 plant_fastq_dir="./plant_fastq_output_$timestamp"      # Unique directory for plant FASTQ files
 pathogen_fastq_dir="./pathogen_fastq_output_$timestamp" # Unique directory for pathogen FASTQ files
-
+```
 # Step 1: Index the main BAM file if not already indexed
-if [ ! -f "${input_bam}.bai" ]; then
+```if [ ! -f "${input_bam}.bai" ]; then
     echo "Indexing BAM file..."
     samtools index "$input_bam"
 fi
-
+```
 # Step 2: Remove existing BAM files if they exist
-if [ -f "$plant_bam" ]; then
+```if [ -f "$plant_bam" ]; then
     echo "Removing existing plant BAM file..."
     rm -f "$plant_bam"
 fi
