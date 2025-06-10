@@ -130,7 +130,7 @@ echo "Starting"
 /projects/songli_lab/PlantSingleCell2025/Day_1/Session_1/Data/cellranger-9.0.1/cellranger count \
     --id=PLant_Pathogen_Mapping_Neg24hpi_1_scRNAseq \
     --transcriptome=/projects/songli_lab/PlantSingleCell2025/Day_1/Session_1/Ref_Genome10X_Multiple_Species_Genome/Arabidopsis_thaliana_and_Pcap \
-    --fastqs=/projects/songli_lab/PlantSingleCell2025/Day_1/Session_1/Data/Neg24hpi_1/01.RawData/Neg24hpi_1 \
+    --fastqs=/projects/songli_lab/PlantSingleCell2025/Day_1/Session_1/Data/Neg24hpi_1 \
     --sample=Neg24hpi_1_CKDL240032442-1A_22GH3VLT4 \
     --force-cells=8000 \
     --create-bam=true
