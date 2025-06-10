@@ -14,6 +14,9 @@ To perform read alignment and gene counting for a single-cell RNA-seq dataset fr
 
 2. **Build Cell Ranger-Compatible Reference**  
 - Use makeref command to create a reference (https://www.10xgenomics.com/support/software/cell-ranger/latest/analysis/inputs/cr-3p-references#multiple-species-4f40e4)
+
+3. **Download Cell Ranger**
+ https://www.10xgenomics.com/support/software/cell-ranger/downloads#download-links
   
 ```
 #!/bin/bash
@@ -156,7 +159,6 @@ echo "Process complete! FASTQ files for plant and pathogen are saved in their re
 ```
 ### Process FASTQ Files_Run Cell Ranger Count 
 
-Download Cell Ranger: https://www.10xgenomics.com/support/software/cell-ranger/downloads#download-links
 ```
 #!/bin/bash
 #SBATCH --job-name=Cellranger_Analysis_Pos24hpi_2  # Job name
