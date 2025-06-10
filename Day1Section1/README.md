@@ -84,6 +84,11 @@ Make sure the possorted_genome_bam.bam and the possorted_genome-bam.bam.bai file
 1. bamtofastq_linux
 2. subset-bam_linux
 Function: Splits BAM by barcode and converts to FASTQ
+
+https://github.com/10XGenomics/subset-bam/releases 
+
+https://github.com/10XGenomics/bamtofastq/releases 
+
 ```
 #!/bin/bash
 #SBATCH --job-name=FilterConvert_10x     # Job name
