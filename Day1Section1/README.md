@@ -155,6 +155,8 @@ $BAMTOFASTQ "$pathogen_bam" "$pathogen_fastq_dir"
 echo "Process complete! FASTQ files for plant and pathogen are saved in their respective directories."
 ```
 ### Process FASTQ Files_Run Cell Ranger Count 
+
+Download Cell Ranger: https://www.10xgenomics.com/support/software/cell-ranger/downloads#download-links
 ```
 #!/bin/bash
 #SBATCH --job-name=Cellranger_Analysis_Pos24hpi_2  # Job name
