@@ -167,19 +167,20 @@ https://github.com/10XGenomics/bamtofastq/releases
 
 ```
 #!/bin/bash
-#SBATCH --job-name=FilterConvert_10x     # Job name
+#SBATCH --job-name=FilterConvert     # Job name
 #SBATCH --nodes=1                                # Number of nodes
 #SBATCH --ntasks=1                               # Number of tasks (MPI processes)
 #SBATCH --cpus-per-task=4                        # Number of CPU cores per task
 #SBATCH --mem=16G                                # Memory per node (in GB)
 #SBATCH --time=20:00:00                          # Time limit (hh:mm:ss)
+#SBATCH --mail-user=arazan@vt.edu                # Email address for job notifications
 #SBATCH --mail-type=ALL                          # Send email at beginning and end of job
-#SBATCH --output=filter_convert_10X_%j.out           # Standard output log
+#SBATCH --output=filter_convert_Matthew_10X_%j.out           # Standard output log
 #SBATCH --account=introtogds                     # Replace with your valid account
 
 # Define paths to custom tools
-BAMTOFASTQ="/projects/intro2gds/Razan_2024/scRNA_Seq_Arab/10X_Pos24hpi_Bam_file_Barcode_File/Pos24hpi_1/10_31_24/bamtofastq_linux"
-SUBSET_BAM="/projects/intro2gds/Razan_2024/scRNA_Seq_Arab/10X_Pos24hpi_Bam_file_Barcode_File/Pos24hpi_1/10_31_24/subset-bam_linux"
+BAMTOFASTQ="/projects/songli_lab/PlantSingleCell2025/Day_1/Session_1/Data/Convert_BAM_to_FASTQ/bamtofastq_linux"
+SUBSET_BAM="/projects/songli_lab/PlantSingleCell2025/Day_1/Session_1/Data/Convert_BAM_to_FASTQ/subset-bam_linux"
 
 # Define input files and output directories with unique timestamps
 input_bam="possorted_genome_Pos24hpi_1_bam.bam"        # Main BAM file
@@ -190,15 +191,14 @@ pathogen_bam="pathogen_reads.bam"                      # Filtered pathogen BAM
 timestamp=$(date +"%Y%m%d_%H%M%S")                     # Unique timestamp for output
 plant_fastq_dir="./plant_fastq_output_$timestamp"      # Unique directory for plant FASTQ files
 pathogen_fastq_dir="./pathogen_fastq_output_$timestamp" # Unique directory for pathogen FASTQ files
-# Step 1: Index the main BAM file if not already indexed
 
+# Step 1: Index the main BAM file if not already indexed
 if [ ! -f "${input_bam}.bai" ]; then
     echo "Indexing BAM file..."
     samtools index "$input_bam"
 fi
 
 # Step 2: Remove existing BAM files if they exist
-
 if [ -f "$plant_bam" ]; then
     echo "Removing existing plant BAM file..."
     rm -f "$plant_bam"
