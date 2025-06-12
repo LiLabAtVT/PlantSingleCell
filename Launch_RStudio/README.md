@@ -29,7 +29,7 @@ Navigate to the following URL in your browser:
 
 This will bring you to the ARC Open OnDemand dashboard.
 
-![Step 3 - ARC Dashboard](RStudio_launch.png)
+![Step 3 - ARC Dashboard](RStudio_app.png)
 
 ---
 
