@@ -59,15 +59,11 @@ You can choose from three available clusters:
 - **Owl**: CPU-based 
 - **Falcon**: GPU-based 
 
-
-
 ### 4.2: Partition
 
 Partitions define the scheduling queues available for a given cluster. Choose the appropriate one based on your selected cluster
 Refer to ARC documentation for details:  
 [VT ARC Compute Resources](https://www.docs.arc.vt.edu/resources/compute.html)
-
-
 
 ### 4.3: Account
 
@@ -83,17 +79,13 @@ You can view your active allocations in terminal with:
 quota
 ```
 
-
-
 ### 4.4: Number of Hours
 
 This sets how long your RStudio session will last. You can choose between **1 to 48 hours**.  
 
-
 ### 4.5: R Version
 
 Choose the appropriate R version available on the cluster.
-
 
 ### 4.6: Number of Cores per Node
 
@@ -102,4 +94,3 @@ This defines the number of **CPU cores** allocated for your session.
 ### 4.7: Launch
 
 Once all fields are configured, **click the "Launch" button** to start your RStudio session. The session will open in a new tab when ready.
-
