@@ -17,7 +17,7 @@ Use the **Ivanti Secure Access Client** to connect to the VT VPN.
 
 When prompted, enter your **VT PID** as the username and your **VT password**.
 
-![Step 2 - Login](images/Password.png)
+![Step 2 - Login](Password.png)
 
 ---
 
@@ -37,6 +37,6 @@ This will bring you to the ARC Open OnDemand dashboard.
 
 From the Open OnDemand dashboard, locate the **RStudio Server** application.
 
-![Step 4 - Launch RStudio](images/step4.png)
+![Step 4 - Launch RStudio](RStudio_launch.png)
 
 
