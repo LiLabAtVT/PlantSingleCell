@@ -36,8 +36,11 @@ Navigate to the following URL in your browser:
 
 This will bring you to the ARC Open OnDemand dashboard.
 
-![Step 3 - ARC Dashboard](RStudio_app.png)
+<!-- Original Markdown -->
+<!-- ![Step 3 - ARC Dashboard](RStudio_app.png) -->
 
+<!-- Updated with smaller size -->
+<img src="RStudio_app.png" alt="Step 3 - ARC Dashboard" width="400"/>
 ---
 
 ## Step 4: Launch RStudio
