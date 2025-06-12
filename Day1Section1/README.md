@@ -175,7 +175,7 @@ https://github.com/10XGenomics/bamtofastq/releases
 #SBATCH --time=20:00:00                          # Time limit (hh:mm:ss)
 #SBATCH --mail-user=arazan@vt.edu                # Email address for job notifications
 #SBATCH --mail-type=ALL                          # Send email at beginning and end of job
-#SBATCH --output=filter_convert_Matthew_10X_%j.out           # Standard output log
+#SBATCH --output=filter_convert_%j.out           # Standard output log
 #SBATCH --account=introtogds                     # Replace with your valid account
 
 # Define paths to custom tools
