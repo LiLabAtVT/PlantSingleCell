@@ -94,3 +94,11 @@ This defines the number of **CPU cores** allocated for your session.
 ### 4.7: Launch
 
 Once all fields are configured, **click the "Launch" button** to start your RStudio session. The session will open in a new tab when ready.
+
+It may take **a couple of minutes** to initialize the environment. Once it is ready, you will see a confirmation and a **"Connect to RStudio Server"** button.
+
+<!-- Original Markdown -->
+<!-- ![Step 4.7 - Connect RStudio](Launch_job.png) -->
+
+<!-- Updated with smaller size -->
+<img src="Launch_job.png" alt="Step 4.7 - Connect RStudio" width="400"/>
