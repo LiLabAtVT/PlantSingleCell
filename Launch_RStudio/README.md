@@ -11,6 +11,12 @@ Use the **Ivanti Secure Access Client** to connect to the VT VPN.
 
 ![Step 1 - VPN Connection](VPN.png)
 
+<!-- Original Markdown -->
+<!-- ![Step 1 - VPN Connection](VPN.png) -->
+
+<!-- Updated with smaller size -->
+<img src="VPN.png" alt="Step 1 - VPN Connection" width="400"/>
+
 ---
 
 ## Step 2: Login with VT Credentials
