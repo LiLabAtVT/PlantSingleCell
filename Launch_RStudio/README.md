@@ -26,6 +26,7 @@ When prompted, enter your **VT PID** as the username and your **VT password**.
 
 <!-- Updated with smaller size -->
 <img src="Password.png" alt="Step 2 - VT Credentials" width="400"/>
+
 ---
 
 ## Step 3: Open ARC Open OnDemand
@@ -41,6 +42,7 @@ This will bring you to the ARC Open OnDemand dashboard.
 
 <!-- Updated with smaller size -->
 <img src="RStudio_app.png" alt="Step 3 - ARC Dashboard" width="400"/>
+
 ---
 
 ## Step 4: Launch RStudio
