@@ -9,8 +9,6 @@ This guide walks you through the steps required to access RStudio on the ARC Ope
 
 Use the **Ivanti Secure Access Client** to connect to the VT VPN.
 
-![Step 1 - VPN Connection](VPN.png)
-
 <!-- Original Markdown -->
 <!-- ![Step 1 - VPN Connection](VPN.png) -->
 
@@ -23,8 +21,11 @@ Use the **Ivanti Secure Access Client** to connect to the VT VPN.
 
 When prompted, enter your **VT PID** as the username and your **VT password**.
 
-![Step 2 - Login](Password.png)
+<!-- Original Markdown -->
+<!-- ![Step 2 - VT Credentials](Password.png) -->
 
+<!-- Updated with smaller size -->
+<img src="Password.png" alt="Step 2 - VT Credentials" width="400"/>
 ---
 
 ## Step 3: Open ARC Open OnDemand
