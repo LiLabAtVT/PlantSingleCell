@@ -77,7 +77,7 @@ This refers to your **allocation name**. For this guide, we use:
 plantsinglecell
 ```
 
-You can view your active allocations with:
+You can view your active allocations in terminal with:
 
 ```bash
 quota
@@ -98,4 +98,8 @@ Choose the appropriate R version available on the cluster.
 ### 4.6: Number of Cores per Node
 
 This defines the number of **CPU cores** allocated for your session.  
+
+### 4.7: Launch
+
+Once all fields are configured, **click the "Launch" button** to start your RStudio session. The session will open in a new tab when ready.
 
