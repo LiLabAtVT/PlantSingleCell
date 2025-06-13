@@ -269,8 +269,8 @@ library(Seurat)
 library(sctransform)
 
 # Load raw 10X count matrices
-Neg1 <- Read10X(data.dir = "/projects/intro2gds/Razan_2024/scRNA_Seq_Arab/Cell_Ranger_Analysis_Multiple_Genome_10X_10_22_24/10X_Combined_Pathogenome_Mapping_Neg24hpi_1_scRNAseq_10_22_24/outs/filtered_feature_bc_matrix")
-Pos1 <- Read10X(data.dir = "/projects/intro2gds/Razan_2024/scRNA_Seq_Arab/10X_Pos24hpi_Bam_file_Barcode_File/Pos24hpi_1/11_1_24_10X/plant_fastq_output_20241101_170110/10x_Combined_Pathogene_Mapping_Pos24hpi_1_scRNAseq_10_28_24_0_1_22GH3VLT4/combined_Files_Fastq/Mapping_Pos24hpi_1_scRNAseq_11_2_24_ATH_Read_Only/outs/filtered_feature_bc_matrix")
+Neg1 <- Read10X(data.dir = "/projects/songli_lab/PlantSingleCell2025/Day_1/Session_1/Data/CellRanger_Output_Mapped_Multi_Ref/PLant_Pathogen_Mapping_Neg24hpi_1_scRNAseq_Multi_Ref/outs/filtered_feature_bc_matrix")
+Pos1 <- Read10X(data.dir = "/projects/songli_lab/PlantSingleCell2025/Day_1/Session_1/Data/Convert_BAM_to_FASTQ/Mapping_Pos24hpi_1_scRNAseq_ATH_Read_Only/outs/filtered_feature_bc_matrix")
 
 rownames(Neg1) <- gsub("Arabidopsis_thaliana_gene:", "", rownames(Neg1))
 rownames(Pos1) <- gsub("gene:", "", rownames(Pos1))
@@ -352,4 +352,5 @@ dev.off()
 pdf("/projects/songli_lab/PlantSingleCell2025/Day_1/Session_1/RScript/Patho_Nonpatho_sep.pdf", width = 8, height = 5)
 DimPlot(crossSamples.combine, reduction = "umap", split.by = "orig.ident")
 dev.off()
+
 ```
