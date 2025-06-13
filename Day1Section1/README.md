@@ -165,6 +165,8 @@ https://github.com/10XGenomics/subset-bam/releases
 
 https://github.com/10XGenomics/bamtofastq/releases 
 
+3. Samtools:   https://github.com/samtools/samtools/releases/download/1.22/samtools-1.22.tar.bz2
+
 ```
 #!/bin/bash
 #SBATCH --job-name=FilterConvert     # Job name
