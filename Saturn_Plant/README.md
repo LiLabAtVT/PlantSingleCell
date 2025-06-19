@@ -202,3 +202,15 @@ sc.tl.umap(adata)
 sc.pl.umap(adata, color="species", title="Species")
 sc.pl.umap(adata, color="labels2", title="Cell Type")
 ```
+
+<!-- Original Markdown -->
+<!-- ![UMAP integration plot](Images/Integration_UMAP.png) -->
+
+<!-- Updated with smaller size -->
+<img src="Images/Integration_UMAP.png" alt="Step 3 - ARC Dashboard" width="400"/>
+
+## 📚 Citation
+
+This guide is based on the publicly available SATURN framework:
+
+Rosen, Y., Brbić, M., Roohani, Y., Swanson, K., Li, Z., & Leskovec, J. (2024). Toward universal cell embeddings: integrating single-cell RNA-seq datasets across species with SATURN. Nature Methods, 21(8), 1492-1500.
