@@ -23,11 +23,12 @@ pip install torch torchvision torchaudio --index-url https://download.pytorch.or
 ## 📥 Download Repository and Prepare Data
 
 ```bash
+cd /projects/intro2gds
 # Clone SATURN repo
 git clone https://github.com/snap-stanford/SATURN.git
 
 # Create and navigate to proteome directory
-cd /projects/intro2gds/SATURN/protein_embeddings
+cd SATURN/protein_embeddings
 mkdir proteome
 cd proteome
 ```
