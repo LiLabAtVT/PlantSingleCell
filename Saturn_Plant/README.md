@@ -40,7 +40,11 @@ cd proteome
 ```bash
 cd /projects/intro2gds/SATURN/protein_embeddings
 
-python clean_fasta.py --data_path /projects/intro2gds/SATURN/protein_embeddings/proteome/Glycine_max.fa --save_path /projects/intro2gds/SATURN/protein_embeddings/proteome/Glycine_max.all_clean.fa
+# For Arabidopsis
+python clean_fasta.py --data_path /projects/intro2gds/SATURN/protein_embeddings/proteome/Arabidopsis_thaliana.fa --save_path /projects/intro2gds/SATURN/protein_embeddings/proteome/Arabidopsis_thaliana.all_clean.fa
+
+# For Tomato
+python clean_fasta.py --data_path /projects/intro2gds/SATURN/protein_embeddings/proteome/Solanum_lycopersicum.fa --save_path /projects/intro2gds/SATURN/protein_embeddings/proteome/Solanum_lycopersicum.all_clean.fa
 ```
 
 ---
@@ -52,11 +56,19 @@ cd /projects/intro2gds/SATURN/protein_embeddings
 
 # Submit to GPU cluster
 sbatch test_slurm.sh
+```
+In in bash script file you will see
+```bash
+python /projects/intro2gds/SATURN/protein_embeddings/esm/scripts/extract.py \
+esm1b_t33_650M_UR50S \
+/projects/intro2gds/SATURN/protein_embeddings/proteome/Arabidopsis_thaliana.all_clean.fa \
+/projects/intro2gds/SATURN/protein_embeddings/embeddings/Arabidopsis_thaliana.all_clean.fa_esm1b \
+--include mean
 
 python /projects/intro2gds/SATURN/protein_embeddings/esm/scripts/extract.py \
 esm1b_t33_650M_UR50S \
-/projects/intro2gds/SATURN/protein_embeddings/proteome/Glycine_max.all_clean.fa \
-/projects/intro2gds/SATURN/protein_embeddings/embeddings/Glycine_max.all_clean.fa_esm1b \
+/projects/intro2gds/SATURN/protein_embeddings/proteome/Solanum_lycopersicum.all_clean.fa \
+/projects/intro2gds/SATURN/protein_embeddings/embeddings/Solanum_lycopersicum.all_clean.fa_esm1b \
 --include mean
 ```
 
@@ -65,6 +77,14 @@ esm1b_t33_650M_UR50S \
 ## 🔁 Map Gene Symbols to Protein IDs
 
 ```bash
+# For Arabidopsis
+python map_gene_symbol_to_protein_ids.py \
+--fasta_path /projects/intro2gds/SATURN/protein_embeddings/proteome/Arabidopsis_thaliana.fa \
+--save_path /projects/intro2gds/SATURN/protein_embeddings/proteome/Arabidopsis_thaliana.gene_symbol_to_protein_ID.json
+```
+
+```bash
+# For Tomato
 awk '/^>/ {id=substr($0,2); print ">" id " gene_symbol:" id; next} {print}' Solanum_lycopersicum.all_clean.fa > Solanum_lycopersicum.fa
 python map_gene_symbol_to_protein_ids.py \
 --fasta_path /projects/intro2gds/SATURN/protein_embeddings/proteome/Solanum_lycopersicum.fa \
@@ -76,11 +96,19 @@ python map_gene_symbol_to_protein_ids.py \
 ## 🔄 Convert Protein to Gene Embeddings
 
 ```bash
+# For Arabidopsis
 python convert_protein_embeddings_to_gene_embeddings.py \
---embedding_dir /projects/intro2gds/SATURN/protein_embeddings/embeddings/Glycine_max.all_clean.fa_esm1b \
---gene_symbol_to_protein_ids_path /projects/intro2gds/SATURN/protein_embeddings/proteome/Glycine_max.gene_symbol_to_protein_ID.json \
+--embedding_dir /projects/intro2gds/SATURN/protein_embeddings/embeddings/Arabidopsis_thaliana.all_clean.fa_esm1b \
+--gene_symbol_to_protein_ids_path /projects/intro2gds/SATURN/protein_embeddings/proteome/Arabidopsis_thaliana.gene_symbol_to_protein_ID.json \
 --embedding_model ESM1b \
---save_path /projects/intro2gds/SATURN/protein_embeddings/embeddings/Glycine_max.gene_symbol_to_embedding_ESM1b.pt
+--save_path /projects/intro2gds/SATURN/protein_embeddings/embeddings/Arabidopsis_thaliana.gene_symbol_to_embedding_ESM1b.pt
+
+# For Tomato
+python convert_protein_embeddings_to_gene_embeddings.py \
+--embedding_dir /projects/intro2gds/SATURN/protein_embeddings/embeddings/Solanum_lycopersicum.all_clean.fa_esm1b \
+--gene_symbol_to_protein_ids_path /projects/intro2gds/SATURN/protein_embeddings/proteome/Solanum_lycopersicum.gene_symbol_to_protein_ID.json \
+--embedding_model ESM1b \
+--save_path /projects/intro2gds/SATURN/protein_embeddings/embeddings/Solanum_lycopersicum.gene_symbol_to_embedding_ESM1b.pt
 ```
 
 ---
