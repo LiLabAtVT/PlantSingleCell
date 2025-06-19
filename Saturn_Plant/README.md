@@ -207,7 +207,7 @@ sc.pl.umap(adata, color="labels2", title="Cell Type")
 <!-- ![UMAP integration plot](Images/Integration_UMAP.png) -->
 
 <!-- Updated with smaller size -->
-<img src="Images/Integration_UMAP.png" alt="Step 3 - ARC Dashboard" width="400"/>
+<img src="Images/Integration_UMAP.png" alt="Step 3 - ARC Dashboard" width="600"/>
 
 ## 📚 Citation
 
