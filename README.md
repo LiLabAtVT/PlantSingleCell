@@ -13,6 +13,12 @@ For summer training camp for plant single cell analysis at Virginia Tech
 ### Day 2 section 1 (CoPilot method)
 ### Day 2 section 2 (Michael)
 ### Day 2 section 3 
+To quickly install the required packages, you need to run this
+```bash
+Sys.setenv(R_LIBS_USER="/projects/songli_lab/PlantSingleCell2025/Day_2/env/")
+.libPaths(Sys.getenv("R_LIBS_USER"))
+.libPaths() 
+```
 Use OMG for cell type annotation, https://github.com/LiLabAtVT/OrthoMarkerGeneGroups
 
 ### Day 2 section 5 (Nina on SATURN method)
