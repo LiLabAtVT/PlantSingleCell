@@ -186,7 +186,7 @@ BAMTOFASTQ="/projects/songli_lab/PlantSingleCell2025/Day_1/Session_1/Data/Conver
 SUBSET_BAM="/projects/songli_lab/PlantSingleCell2025/Day_1/Session_1/Data/Convert_BAM_to_FASTQ/subset-bam_linux"
 
 # Define input files and output directories with unique timestamps
-input_bam="possorted_genome_Pos24hpi_1_bam.bam"        # Main BAM file
+input_bam="/projects/songli_lab/PlantSingleCell2025/Day_1/Session_1/Data/Convert_BAM_to_FASTQ/possorted_genome_Pos24hpi_1_bam.bam"  # Main BAM file
 plant_barcodes="arabidopsis_barcodes.txt"              # Plant barcodes file
 pathogen_barcodes="pcap_barcodes.txt"                  # Pathogen barcodes file
 plant_bam="plant_reads.bam"                            # Filtered plant BAM
@@ -287,11 +287,18 @@ process_seurat_object <- function(counts_data, project_name,
   # Compute mitochondrial percentage for Arabidopsis
 seurat_obj[["percent.mt"]] <- PercentageFeatureSet(seurat_obj, pattern = "^ATMG")
 
+  # Arabidopsis: no usable percent.mt, so set it to 0
+  seurat_obj[["percent.mt"]] <- 0
+  
   # Filter based on quality control metrics
   seurat_obj <- subset(seurat_obj, subset = nFeature_RNA > 100 & 
                          nFeature_RNA < feature_upper & 
                          percent.mt < 5)
-                         
+   # QC violin plots
+  pdf(paste0("./", project_name, "_QC_violin.pdf"), width = 10, height = 5)
+  print(VlnPlot(seurat_obj, features = c("nFeature_RNA", "nCount_RNA", "percent.mt"), ncol = 3))
+  dev.off()  
+  
   # Normalize data
   seurat_obj <- NormalizeData(seurat_obj, normalization.method = "LogNormalize", scale.factor = 10000)
   # Identify variable features
@@ -305,7 +312,7 @@ seurat_obj[["percent.mt"]] <- PercentageFeatureSet(seurat_obj, pattern = "^ATMG"
   seurat_obj <- RunUMAP(seurat_obj, dims = pca_dims)
   
   # Save object
-  saveRDS(seurat_obj, paste0("/projects/songli_lab/PlantSingleCell2025/Day_1/Session_1/RScript", project_name, ".rds"))
+  saveRDS(seurat_obj, paste0("./", project_name, ".rds"))
   
   return(seurat_obj)
 }
@@ -336,22 +343,22 @@ crossSamples.combine <- RunUMAP(crossSamples.combine, reduction = "pca", dims = 
 crossSamples.combine <- FindNeighbors(crossSamples.combine, reduction = "pca", dims = 1:30)
 crossSamples.combine <- FindClusters(crossSamples.combine, resolution = 0.3) #org =0.3
 
-saveRDS(crossSamples.combine, "/projects/songli_lab/PlantSingleCell2025/Day_1/Session_1/RScript/Patho_Nonpatho_integration.Rds")
+saveRDS(crossSamples.combine, "./Patho_Nonpatho_integration.Rds")
 
-pdf("/projects/songli_lab/PlantSingleCell2025/Day_1/Session_1/RScript/Patho_Nonpatho.pdf", width = 8, height = 5)
+pdf("./Patho_Nonpatho.pdf", width = 8, height = 5)
 DimPlot(crossSamples.combine, reduction = "umap", group.by = "orig.ident", cols = c("lightblue","blue", "#FFC073","#FF8C00"))
 dev.off()
 
-pdf("/projects/songli_lab/PlantSingleCell2025/Day_1/Session_1/RScript/Patho_Nonpatho_sepColor.pdf", width = 8, height = 5)
+pdf("./Patho_Nonpatho_sepColor.pdf", width = 8, height = 5)
 DimPlot(crossSamples.combine, reduction = "umap", split.by = "orig.ident", group.by = "orig.ident", cols = c("lightblue","blue", "#FFC073","#FF8C00"))
 dev.off()
 
-pdf("/projects/songli_lab/PlantSingleCell2025/Day_1/Session_1/RScript/Patho_Nonpatho_lable.pdf", width = 8, height = 5)
+pdf("./Patho_Nonpatho_lable.pdf", width = 8, height = 5)
 DimPlot(crossSamples.combine, reduction = "umap", label = TRUE)
 dev.off()
 
 
-pdf("/projects/songli_lab/PlantSingleCell2025/Day_1/Session_1/RScript/Patho_Nonpatho_sep.pdf", width = 8, height = 5)
+pdf("./Patho_Nonpatho_sep.pdf", width = 8, height = 5)
 DimPlot(crossSamples.combine, reduction = "umap", split.by = "orig.ident")
 dev.off()
 
