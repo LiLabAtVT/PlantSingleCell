@@ -18,6 +18,7 @@ Dr. Wei-Che Hsu will present COPILOT[https://github.com/Hsu-Che-Wei/COPILOT]
 Mr. Michael Passalacqua from Cold Spring Harbor lab will present his co-expression proxy method[https://github.com/gillislab/Coexpression_Proxies]
 
 ### Day 2 section 3 
+Ms. Tran Chau will present Othro Marker Gene groups method.
 To quickly install the required packages, you need to run this
 ```bash
 Sys.setenv(R_LIBS_USER="/projects/songli_lab/PlantSingleCell2025/Day_2/env/")
