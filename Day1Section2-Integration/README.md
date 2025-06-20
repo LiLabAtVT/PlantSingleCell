@@ -10,7 +10,7 @@ The goal of this session is to help you set up a reproducible and high-performan
 - Access and clone the workshop repository
 - Launch and configure RStudio on the Virginia Tech ARC cluster
 - Set up a dedicated R environment and working directory
-- Begin analysis using scripts provided in the `Day1Section2 (Integration)` folder
+- Begin analysis using scripts provided in the `Day1Section2-Integration` folder
 
 
 ---
@@ -30,7 +30,7 @@ The goal of this session is to help you set up a reproducible and high-performan
 
 3. **Navigate into the Integration directory**:
    ```bash
-   cd PlantSingleCell/Day1Section2 (Integration)
+   cd PlantSingleCell/Day1Section2-Integration
    ```
 
 ---
@@ -72,7 +72,7 @@ In the **Console tab** of RStudio, run the following:
 
 2. **Set the working directory**:
    ```r
-   setwd("/projects/songli_lab/PlantSingleCell2025/Day_1/Session_2/[dir_name]/PlantSingleCell/Day1Section2 (Integration)")
+   setwd("/projects/songli_lab/PlantSingleCell2025/Day_1/Session_2/[dir_name]/PlantSingleCell/Day1Section2-Integration")
    ```
 
 ---
