@@ -258,21 +258,6 @@ cross_samples <- lapply(cross_samples, function(obj) {
   return(obj)
   })
 
-
-print("Plot UMAP before SCT-normalization and integration (on the normalized objects)")
-dimplot_combined(
-  obj_list    = cross_samples,
-  group_by    = "integrated_annotation",
-  pallette    = get_color_pallette("per_celltype"),
-  file        = "./Root/UMAP plots/umap_individual_samples_before-SCT_per_celltype.png"
-)
-dimplot_combined(
-  obj_list    = cross_samples,
-  group_by    = "integrated_annotation",
-  pallette    = get_color_pallette("per_cluster"),
-  file        = "./Root/UMAP plots/umap_individual_samples_before-SCT_per_cluster.png"
-)
-
 # 3. SCTransform normalization and variance stabilization on each sample and set default assay to "SCT"
   # variance stabilization: of the gene expression values to minimize the impact of highly variable genes, making downstream analyses like clustering and PCA more reliable. 
   # normalization (using a method based on regularized negative binomial regression for each gene) to account for technical variations and differences in sequencing depth across cells.)
@@ -301,13 +286,13 @@ dimplot_combined(
   obj_list    = sc_cross_samples,
   group_by    = "integrated_annotation",
   pallette    = get_color_pallette("per_celltype"),
-  file        = "./Root/UMAP plots/umap_individual_samples_after-SCT_per_celltype.png",
+  file        = "./Root/UMAP plots/umap_individual_samples_per_celltype.png",
 )
 dimplot_combined(
   obj_list    = sc_cross_samples,
   group_by    = "integrated_annotation",
   pallette    = get_color_pallette("per_cluster"),
-  file        = "./Root/UMAP plots/umap_individual_samples_after-SCT_per_cluster.png",
+  file        = "./Root/UMAP plots/umap_individual_samples_per_cluster.png",
 )
 
 # 4. Select integration features which identifies shared, HVGs across samples
