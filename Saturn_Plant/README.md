@@ -42,13 +42,13 @@ cd proteome
 - Ensure that each FASTA header includes a `gene_symbol:` tag.
 
 ```bash
-cd /projects/intro2gds/SATURN/protein_embeddings
+cd SATURN/protein_embeddings
 
 # For Arabidopsis
-python clean_fasta.py --data_path /projects/intro2gds/SATURN/protein_embeddings/proteome/Arabidopsis_thaliana.fa --save_path /projects/intro2gds/SATURN/protein_embeddings/proteome/Arabidopsis_thaliana.all_clean.fa
+python clean_fasta.py --data_path proteome/Arabidopsis_thaliana.fa --save_path proteome/Arabidopsis_thaliana.all_clean.fa
 
 # For Tomato
-python clean_fasta.py --data_path /projects/intro2gds/SATURN/protein_embeddings/proteome/Solanum_lycopersicum.fa --save_path /projects/intro2gds/SATURN/protein_embeddings/proteome/Solanum_lycopersicum.all_clean.fa
+python clean_fasta.py --data_path proteome/Solanum_lycopersicum.fa --save_path proteome/Solanum_lycopersicum.all_clean.fa
 ```
 
 ---
