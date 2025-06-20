@@ -4,6 +4,28 @@
 # 🧬 Objective  
 To perform read alignment and gene counting for a single-cell RNA-seq dataset from pathogen-infected plant roots using 10X Genomics data. The example uses Arabidopsis thaliana as the host.
 
+# Quick Start
+
+1. **Create your working directory**:
+   ```bash
+   mkdir -p /projects/songli_lab/PlantSingleCell2025/Day_1/ParticipantFolder/[dir_name]
+   cd /projects/songli_lab/PlantSingleCell2025/Day_1/ParticipantFolder/[dir_name]
+   ```
+
+2. **Clone the repository**:
+   ```bash
+   git clone https://github.com/LiLabAtVT/PlantSingleCell.git
+   ```
+
+3. **Navigate into the Section 1 directory**:
+   ```bash
+   cd PlantSingleCell/Day1Section1
+   ```
+4. **Submit your SLURM script**:
+   ```bash
+   sbatch Cellranger_mkref_Multiplespecies.sh
+   ```
+
 ***Steps Covered***
 
 ### Build a Combined Reference
