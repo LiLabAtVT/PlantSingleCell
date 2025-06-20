@@ -1,6 +1,5 @@
-# PlantSingleCell
-For summer training camp for plant single cell analysis at Virginia Tech
-
+# Plant Single Cell Analysis Workshop and Mini-hackathon
+This is the github repository for a summer training camp for plant single cell analysis at Virginia Tech
 
 
 ## Day 1 Materials
