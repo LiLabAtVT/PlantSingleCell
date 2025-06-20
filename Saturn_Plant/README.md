@@ -45,9 +45,11 @@ cd proteome
 cd SATURN/protein_embeddings
 
 # For Arabidopsis
+cp /projects/intro2gds/SATURN/protein_embeddings/proteome/Arabidopsis_thaliana.fa proteome/
 python clean_fasta.py --data_path proteome/Arabidopsis_thaliana.fa --save_path proteome/Arabidopsis_thaliana.all_clean.fa
 
 # For Tomato
+cp /projects/intro2gds/SATURN/protein_embeddings/proteome/Solanum_lycopersicum.fa proteome/
 python clean_fasta.py --data_path proteome/Solanum_lycopersicum.fa --save_path proteome/Solanum_lycopersicum.all_clean.fa
 ```
 
@@ -64,22 +66,22 @@ python clean_fasta.py --data_path proteome/Solanum_lycopersicum.fa --save_path p
 
   
 ```bash
-cd /projects/intro2gds/SATURN/protein_embeddings
+cp /projects/intro2gds/SATURN/protein_embeddings/test_slurm.sh .
 sbatch test_slurm.sh  # Submit to GPU cluster
 ```
 
 In in bash script file you will see
 ```bash
-python /projects/intro2gds/SATURN/protein_embeddings/esm/scripts/extract.py \
+python esm/scripts/extract.py \
 esm1b_t33_650M_UR50S \
-/projects/intro2gds/SATURN/protein_embeddings/proteome/Arabidopsis_thaliana.all_clean.fa \
-/projects/intro2gds/SATURN/protein_embeddings/embeddings/Arabidopsis_thaliana.all_clean.fa_esm1b \
+proteome/Arabidopsis_thaliana.all_clean.fa \
+embeddings/Arabidopsis_thaliana.all_clean.fa_esm1b \
 --include mean
 
-python /projects/intro2gds/SATURN/protein_embeddings/esm/scripts/extract.py \
+python esm/scripts/extract.py \
 esm1b_t33_650M_UR50S \
-/projects/intro2gds/SATURN/protein_embeddings/proteome/Solanum_lycopersicum.all_clean.fa \
-/projects/intro2gds/SATURN/protein_embeddings/embeddings/Solanum_lycopersicum.all_clean.fa_esm1b \
+proteome/Solanum_lycopersicum.all_clean.fa \
+embeddings/Solanum_lycopersicum.all_clean.fa_esm1b \
 --include mean
 ```
 
@@ -93,16 +95,16 @@ esm1b_t33_650M_UR50S \
 ```bash
 # For Arabidopsis
 python map_gene_symbol_to_protein_ids.py \
---fasta_path /projects/intro2gds/SATURN/protein_embeddings/proteome/Arabidopsis_thaliana.fa \
---save_path /projects/intro2gds/SATURN/protein_embeddings/proteome/Arabidopsis_thaliana.gene_symbol_to_protein_ID.json
+--fasta_path proteome/Arabidopsis_thaliana.fa \
+--save_path proteome/Arabidopsis_thaliana.gene_symbol_to_protein_ID.json
 ```
 
 ```bash
 # For Tomato
-awk '/^>/ {id=substr($0,2); print ">" id " gene_symbol:" id; next} {print}' Solanum_lycopersicum.all_clean.fa > Solanum_lycopersicum.fa
+awk '/^>/ {id=substr($0,2); print ">" id " gene_symbol:" id; next} {print}' proteome/Solanum_lycopersicum.all_clean.fa > proteome/Solanum_lycopersicum.fa
 python map_gene_symbol_to_protein_ids.py \
---fasta_path /projects/intro2gds/SATURN/protein_embeddings/proteome/Solanum_lycopersicum.fa \
---save_path /projects/intro2gds/SATURN/protein_embeddings/proteome/Solanum_lycopersicum.gene_symbol_to_protein_ID.json
+--fasta_path proteome/Solanum_lycopersicum.fa \
+--save_path proteome/Solanum_lycopersicum.gene_symbol_to_protein_ID.json
 ```
 
 ---
@@ -112,17 +114,17 @@ python map_gene_symbol_to_protein_ids.py \
 ```bash
 # For Arabidopsis
 python convert_protein_embeddings_to_gene_embeddings.py \
---embedding_dir /projects/intro2gds/SATURN/protein_embeddings/embeddings/Arabidopsis_thaliana.all_clean.fa_esm1b \
---gene_symbol_to_protein_ids_path /projects/intro2gds/SATURN/protein_embeddings/proteome/Arabidopsis_thaliana.gene_symbol_to_protein_ID.json \
+--embedding_dir embeddings/Arabidopsis_thaliana.all_clean.fa_esm1b \
+--gene_symbol_to_protein_ids_path proteome/Arabidopsis_thaliana.gene_symbol_to_protein_ID.json \
 --embedding_model ESM1b \
---save_path /projects/intro2gds/SATURN/protein_embeddings/embeddings/Arabidopsis_thaliana.gene_symbol_to_embedding_ESM1b.pt
+--save_path embeddings/Arabidopsis_thaliana.gene_symbol_to_embedding_ESM1b.pt
 
 # For Tomato
 python convert_protein_embeddings_to_gene_embeddings.py \
---embedding_dir /projects/intro2gds/SATURN/protein_embeddings/embeddings/Solanum_lycopersicum.all_clean.fa_esm1b \
---gene_symbol_to_protein_ids_path /projects/intro2gds/SATURN/protein_embeddings/proteome/Solanum_lycopersicum.gene_symbol_to_protein_ID.json \
+--embedding_dir embeddings/Solanum_lycopersicum.all_clean.fa_esm1b \
+--gene_symbol_to_protein_ids_path proteome/Solanum_lycopersicum.gene_symbol_to_protein_ID.json \
 --embedding_model ESM1b \
---save_path /projects/intro2gds/SATURN/protein_embeddings/embeddings/Solanum_lycopersicum.gene_symbol_to_embedding_ESM1b.pt
+--save_path embeddings/Solanum_lycopersicum.gene_symbol_to_embedding_ESM1b.pt
 ```
 
 ---
@@ -130,22 +132,26 @@ python convert_protein_embeddings_to_gene_embeddings.py \
 ## 🧬 Prepare Gene Expression Data
 
 **Expression CSV files:**
-- `/projects/intro2gds/SATURN/data/Arabidopsis_anno.csv`
-- `/projects/intro2gds/SATURN/data/Tomato_anno.csv`
+```bash
+cd ..
+cp /projects/intro2gds/SATURN/data/Arabidopsis_anno.csv data/
+cp /projects/intro2gds/SATURN/data/Tomato_anno.csv data/
+```
 
 **Script to convert CSV to AnnData:**
-- `/projects/intro2gds/SATURN/data/AnnData_plant.py`
-
-> Submit slurm job to run this file, you can use `AnnData.sh`.
+```bash
+cp /projects/intro2gds/SATURN/data/AnnData_plant.py data/
+cp /projects/intro2gds/SATURN/data/AnnData.sh data/
+sbatch data/AnnData.sh
+```
 
 ---
-
 ## 🗂️ Optional Cell Type Mapping, if we have the cell type annotation column
 
 **Files:**
-- `/projects/intro2gds/SATURN/data/arabidopsis_tomato_cell_type_map.csv`
-- `/projects/intro2gds/SATURN/data/Arabidopsis_Tomato_mapping.Rmd`
-
+```bash
+cp /projects/intro2gds/SATURN/data/arabidopsis_tomato_cell_type_map.csv data/
+```
 <!-- Original Markdown -->
 <!-- ![UMAP integration plot](Images/celltype_map.png) -->
 
@@ -157,7 +163,7 @@ python convert_protein_embeddings_to_gene_embeddings.py \
 
 ## 📁 Create Saturn Input File
 
-**File: `/projects/intro2gds/SATURN/data/Saturn_input.py`**
+**File: `/projects/intro2gds/SATURN/data/Saturn_input.py`**, modify this file with your data path
 
 ```python
 import pandas as pd
@@ -179,18 +185,23 @@ df.to_csv("/projects/intro2gds/SATURN/data/arabidopsis_tomato_run.csv", index=Fa
 ## 🚀 Run SATURN Integration
 - Need GPU to run for this step
 - Submit slurm job using this file
-**File: `/projects/intro2gds/SATURN/data/Saturn_training.sh`**
 
 ```bash
-python /projects/intro2gds/SATURN/train-saturn.py \ 
---in_data=/projects/intro2gds/SATURN/data/arabidopsis_tomato_run.csv \ 
+cp /projects/intro2gds/SATURN/data/Saturn_training.sh /projects/intro2gds/SATURN/
+sbatch Saturn_training.sh
+```
+
+In this sbatch script, you will seee
+```bash
+python train-saturn.py \ 
+--in_data=data/arabidopsis_tomato_run.csv \ 
 --in_label_col=cell_type \ 
 --ref_label_col=cell_type \ 
 --num_macrogenes=2000 \ 
 --hv_genes=8000 \ 
---centroids_init_path=/projects/intro2gds/SATURN/data/at_centroids.pkl \ 
+--centroids_init_path=data/at_centroids.pkl \ 
 --score_adatas \ 
---ct_map_path=/projects/intro2gds/SATURN/data/arabidopsis_tomato_cell_type_map.csv \ 
+--ct_map_path=data/arabidopsis_tomato_cell_type_map.csv \ 
 --work_dir=. \ 
 --device=cuda \ 
 --device_num=0
@@ -207,7 +218,7 @@ Once training completes, use UMAP plots to visualize integrated data.
 pip install scanpy 
 import scanpy as sc
 import pickle
-adata = sc.read("/projects/intro2gds/SATURN/data/saturn_results/test256_data_arabidopsis_tomato_org_saturn_seed_0.h5ad")
+adata = sc.read("./SATURN/data/saturn_results/test256_data_arabidopsis_tomato_org_saturn_seed_0.h5ad")
 sc.pp.pca(adata)
 sc.pl.pca(adata, color="species", title="Species")
 sc.pl.pca(adata, color="labels2", title="Cell Type")
