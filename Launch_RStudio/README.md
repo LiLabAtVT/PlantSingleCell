@@ -5,7 +5,7 @@ This guide walks you through the steps required to access RStudio on the ARC Ope
 
 ---
 
-## Step 1: Connect to VPN
+## Step 1: Connect to VPN (optional, for off campus and no eduroam use only)
 
 Use the **Ivanti Secure Access Client** to connect to the VT VPN.
 
