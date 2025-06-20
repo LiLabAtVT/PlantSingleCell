@@ -5,6 +5,7 @@ For summer training camp for plant single cell analysis at Virginia Tech
 
 ## Day 1 Materials
 ### Day 1 section 1 (Razan) Read mapping with ARC, and load data into Seurat.
+[View detailed setup instructions](./Day1Section2-Integration/README.md)
 ### Day 1 section 2 (Maryam) Integration across different runs, etc.
 [View detailed setup instructions](./Day1Section2-Integration/README.md)
 
