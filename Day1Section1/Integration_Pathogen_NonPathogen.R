@@ -37,7 +37,7 @@ seurat_obj[["percent.mt"]] <- PercentageFeatureSet(seurat_obj, pattern = "^ATMG"
   seurat_obj <- RunUMAP(seurat_obj, dims = pca_dims)
   
   # Save object
-  saveRDS(seurat_obj, paste0("/projects/songli_lab/PlantSingleCell2025/Day_1/Session_1/RScript", project_name, ".rds"))
+  saveRDS(seurat_obj, paste0("./", project_name, ".rds"))
   
   return(seurat_obj)
 }
@@ -68,22 +68,22 @@ crossSamples.combine <- RunUMAP(crossSamples.combine, reduction = "pca", dims = 
 crossSamples.combine <- FindNeighbors(crossSamples.combine, reduction = "pca", dims = 1:30)
 crossSamples.combine <- FindClusters(crossSamples.combine, resolution = 0.3) #org =0.3
 
-saveRDS(crossSamples.combine, "/projects/songli_lab/PlantSingleCell2025/Day_1/Session_1/RScript/Patho_Nonpatho_integration.Rds")
+saveRDS(crossSamples.combine, "./Patho_Nonpatho_integration.Rds")
 
-pdf("/projects/songli_lab/PlantSingleCell2025/Day_1/Session_1/RScript/Patho_Nonpatho.pdf", width = 8, height = 5)
+pdf("./Patho_Nonpatho.pdf", width = 8, height = 5)
 DimPlot(crossSamples.combine, reduction = "umap", group.by = "orig.ident", cols = c("lightblue","blue", "#FFC073","#FF8C00"))
 dev.off()
 
-pdf("/projects/songli_lab/PlantSingleCell2025/Day_1/Session_1/RScript/Patho_Nonpatho_sepColor.pdf", width = 8, height = 5)
+pdf("./Patho_Nonpatho_sepColor.pdf", width = 8, height = 5)
 DimPlot(crossSamples.combine, reduction = "umap", split.by = "orig.ident", group.by = "orig.ident", cols = c("lightblue","blue", "#FFC073","#FF8C00"))
 dev.off()
 
-pdf("/projects/songli_lab/PlantSingleCell2025/Day_1/Session_1/RScript/Patho_Nonpatho_lable.pdf", width = 8, height = 5)
+pdf("./Patho_Nonpatho_lable.pdf", width = 8, height = 5)
 DimPlot(crossSamples.combine, reduction = "umap", label = TRUE)
 dev.off()
 
 
-pdf("/projects/songli_lab/PlantSingleCell2025/Day_1/Session_1/RScript/Patho_Nonpatho_sep.pdf", width = 8, height = 5)
+pdf("./Patho_Nonpatho_sep.pdf", width = 8, height = 5)
 DimPlot(crossSamples.combine, reduction = "umap", split.by = "orig.ident")
 dev.off()
 
