@@ -190,8 +190,8 @@ dimplot_combined <- function(
 
 
 ### 1. Loading data
-rds_files <- c("../../../Inputs/DAG6_root.slim.rds", 
-               "../../..//Inputs/DAG11_root.slim.rds")
+rds_files <- c("/projects/songli_lab/PlantSingleCell2025/Day_1/Session_2/Inputs/DAG6_root.slim.rds", 
+               "/projects/songli_lab/PlantSingleCell2025/Day_1/Session_2/Inputs/DAG11_root.slim.rds")
 
 seurat_list <- lapply(rds_files, readRDS)
 

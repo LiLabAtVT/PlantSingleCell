@@ -50,7 +50,7 @@ save_corr_result_ordered <- function(corr_mat, row_order, col_order, mat_type, l
 
 #### marker genes
 print("Marker genes.......")
-genes_of_interest <- read.csv("../../../Inputs/Root genes.csv")
+genes_of_interest <- read.csv("/projects/songli_lab/PlantSingleCell2025/Day_1/Session_2/Inputs/Root genes.csv")
 gene_ids_of_interest <- genes_of_interest$GeneID
 print("# of genes of interest")
 print(length(gene_ids_of_interest))
