@@ -11,6 +11,8 @@ For summer training camp for plant single cell analysis at Virginia Tech
 
 ## Day 2 Materials
 ### Day 2 section 1 (CoPilot method)
+Dr. Wei-Che Hsu will present COPILOT[https://github.com/Hsu-Che-Wei/COPILOT]
+
 ### Day 2 section 2 (Michael)
 ### Day 2 section 3 
 To quickly install the required packages, you need to run this
