@@ -16,6 +16,7 @@ conda install python=3.10
 pip install -r requirements.txt
 pip install torch==1.10.2+cu113 -f https://download.pytorch.org/whl/cu113/torch_stable.html
 pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+pip install "numpy<2.0"  #Downgrade Packages for Compatibility
 ```
 
 ---
@@ -37,6 +38,9 @@ cd proteome
 
 ## 🧼 Clean FASTA Files
 
+- Remove protein sequences containing stop codons and clean sequence labels.  
+- Ensure that each FASTA header includes a `gene_symbol:` tag.
+
 ```bash
 cd /projects/intro2gds/SATURN/protein_embeddings
 
@@ -50,13 +54,20 @@ python clean_fasta.py --data_path /projects/intro2gds/SATURN/protein_embeddings/
 ---
 
 ## ⚡ Extract ESM Embeddings (GPU Needed - Falcon cluster)
+- Use the ESM-1b model to generate embeddings for individual protein sequences.
+- Each protein's embedding is saved as a `.pt` file.
+- The embedding is the mean of the final layer token embeddings.
+  
+- Running a protein language model requires a GPU.
+- Use the GPU cluster on ARC for this task.
+- Since it takes time, submit it as a SLURM job.
 
+  
 ```bash
 cd /projects/intro2gds/SATURN/protein_embeddings
-
-# Submit to GPU cluster
-sbatch test_slurm.sh
+sbatch test_slurm.sh  # Submit to GPU cluster
 ```
+
 In in bash script file you will see
 ```bash
 python /projects/intro2gds/SATURN/protein_embeddings/esm/scripts/extract.py \
@@ -76,6 +87,9 @@ esm1b_t33_650M_UR50S \
 
 ## 🔁 Map Gene Symbols to Protein IDs
 
+- Create a mapping from gene symbols to protein IDs.
+- This enables efficient lookup of protein embeddings by gene.
+  
 ```bash
 # For Arabidopsis
 python map_gene_symbol_to_protein_ids.py \
@@ -113,14 +127,6 @@ python convert_protein_embeddings_to_gene_embeddings.py \
 
 ---
 
-## ⬇️ Optional: Downgrade Packages for Compatibility
-
-```bash
-pip install "numpy<2.0"
-```
-
----
-
 ## 🧬 Prepare Gene Expression Data
 
 **Expression CSV files:**
@@ -130,7 +136,7 @@ pip install "numpy<2.0"
 **Script to convert CSV to AnnData:**
 - `/projects/intro2gds/SATURN/data/AnnData_plant.py`
 
-> Submit slurm job to run this file, just modify the AnnData.sh with the update python file `AnnData.sh`.
+> Submit slurm job to run this file, you can use `AnnData.sh`.
 
 ---
 
@@ -164,7 +170,8 @@ df.to_csv("/projects/intro2gds/SATURN/data/arabidopsis_tomato_run.csv", index=Fa
 ---
 
 ## 🚀 Run SATURN Integration
-
+- Need GPU to run for this step
+- Submit slurm job using this file
 **File: `/projects/intro2gds/SATURN/data/Saturn_training.sh`**
 
 ```bash
