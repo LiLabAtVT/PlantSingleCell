@@ -146,6 +146,13 @@ python convert_protein_embeddings_to_gene_embeddings.py \
 - `/projects/intro2gds/SATURN/data/arabidopsis_tomato_cell_type_map.csv`
 - `/projects/intro2gds/SATURN/data/Arabidopsis_Tomato_mapping.Rmd`
 
+<!-- Original Markdown -->
+<!-- ![UMAP integration plot](Images/celltype_map.png) -->
+
+<!-- Updated with smaller size -->
+<img src="Images/celltype_map.png" alt="Step 3 - ARC Dashboard" width="600"/>
+
+
 ---
 
 ## 📁 Create Saturn Input File
