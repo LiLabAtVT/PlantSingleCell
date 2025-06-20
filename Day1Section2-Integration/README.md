@@ -19,8 +19,8 @@ The goal of this session is to help you set up a reproducible and high-performan
 
 1. **Create your working directory**:
    ```bash
-   mkdir -p /projects/songli_lab/PlantSingleCell2025/Day_1/Session_2/[dir_name]
-   cd /projects/songli_lab/PlantSingleCell2025/Day_1/Session_2/[dir_name]
+   mkdir -p /projects/songli_lab/PlantSingleCell2025/Day_1/ParticipantFolder/[dir_name]
+   cd /projects/songli_lab/PlantSingleCell2025/Day_1/ParticipantFolder/[dir_name]
    ```
 
 2. **Clone the repository**:
@@ -72,7 +72,7 @@ In the **Console tab** of RStudio, run the following:
 
 2. **Set the working directory**:
    ```r
-   setwd("/projects/songli_lab/PlantSingleCell2025/Day_1/Session_2/[dir_name]/PlantSingleCell/Day1Section2-Integration")
+   setwd("/projects/songli_lab/PlantSingleCell2025/Day_1/ParticipantFolder/[dir_name]/PlantSingleCell/Day1Section2-Integration")
    ```
 
 ---

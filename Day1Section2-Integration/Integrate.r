@@ -373,8 +373,6 @@ integrated_rpca <- IntegrateData(
   normalization.method = "SCT"
 )
 
-Embeddings(integrated_cca, "umap")?
-
 # PCA and UMAP on the default assay ("integrated")
 integrated_cca <- RunPCA(integrated_cca, verbose = TRUE)
 integrated_cca <- RunUMAP(integrated_cca, reduction = "pca", dims = 1:30)
