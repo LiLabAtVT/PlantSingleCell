@@ -4,6 +4,7 @@ library(glmGamPoi) # to speed up the SCTransform process
 library(patchwork) # using wrap_plots function
 library(ggplot2)
 library(RColorBrewer)
+library(qs)
 
 set.seed(123456)
 options(future.globals.maxSize = 200 * 1024^3)  # Set to 200GB
@@ -223,7 +224,10 @@ merged <- merge(seurat_list[[1]], y = seurat_list[-1],
 if (!dir.exists("./Root")) {
   dir.create("./Root")
 }
-saveRDS(merged, file = "./Root/merged.rds")
+
+# saveRDS(merged, file = "./Root/merged.rds")
+#orders of magnitude faster than saveRDS() and gives smaller files
+qsave(merged, "./Root/merged.rds")
 
 print("Merged seurat object dimensions:")
 print(dim(merged)) # 22403 genes are common between these two samples
@@ -361,11 +365,11 @@ integrated_rpca <- IntegrateData(
 # PCA and UMAP on the default assay ("integrated")
 integrated_cca <- RunPCA(integrated_cca, verbose = TRUE)
 integrated_cca <- RunUMAP(integrated_cca, reduction = "pca", dims = 1:30)
-saveRDS(integrated_cca, "./Root/integrated_cca.rds")
+qsave(integrated_cca, "./Root/integrated_cca.qs")
 
 integrated_rpca <- RunPCA(integrated_rpca, verbose = TRUE)
 integrated_rpca <- RunUMAP(integrated_rpca, reduction = "pca", dims = 1:30)
-saveRDS(integrated_rpca, "./Root/integrated_rpca.rds")
+qsave(integrated_rpca, "./Root/integrated_rpca.qs")
 
 # UMAP plots
 dimplot(

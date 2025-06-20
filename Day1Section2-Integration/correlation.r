@@ -1,5 +1,6 @@
 library(Seurat)
 library(pheatmap)
+library(qs)
 
 set.seed(123456)
 options(future.globals.maxSize = 200 * 1024^3)  # Set to 200GB
@@ -56,9 +57,9 @@ print("# of genes of interest")
 print(length(gene_ids_of_interest))
 
 # read seurat objects
-integrated_cca <- readRDS("./Root/integrated_cca.rds")
-integrated_rpca <- readRDS("./Root/integrated_rpca.rds")
-merged <- readRDS("./Root/merged.rds")
+integrated_cca <- qread("./Root/integrated_cca.qs")
+integrated_rpca <- qread("./Root/integrated_rpca.qs")
+merged <- qread("./Root/merged.qs")
 
 # common genes between all genes and genes of interest
 genes <- as.list(rownames(merged))
