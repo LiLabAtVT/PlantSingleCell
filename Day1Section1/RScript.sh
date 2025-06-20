@@ -17,7 +17,7 @@ module load R/4.4.2-gfbf-2024a
 
 # Set custom R library path
 # export R_LIBS_USER="/home/arazan/R/owl-genoa/4.4.2"
-export R_LIBS_USER="/projects/Intro2GDS/SCCOEXP_2025/Integration//R/env"
+export R_LIBS_USER="/projects/songli_lab/PlantSingleCell2025/Day_1/Session_2/env/"
 
 # Confirm path and Rscript
 echo "Using Rscript at: $(which Rscript)"
