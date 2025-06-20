@@ -19,11 +19,18 @@ process_seurat_object <- function(counts_data, project_name,
   # Compute mitochondrial percentage for Arabidopsis
 seurat_obj[["percent.mt"]] <- PercentageFeatureSet(seurat_obj, pattern = "^ATMG")
 
+  # Arabidopsis: no usable percent.mt, so set it to 0
+  seurat_obj[["percent.mt"]] <- 0
+  
   # Filter based on quality control metrics
   seurat_obj <- subset(seurat_obj, subset = nFeature_RNA > 100 & 
                          nFeature_RNA < feature_upper & 
                          percent.mt < 5)
-                         
+   # QC violin plots
+  pdf(paste0("./", project_name, "_QC_violin.pdf"), width = 10, height = 5)
+  print(VlnPlot(seurat_obj, features = c("nFeature_RNA", "nCount_RNA", "percent.mt"), ncol = 3))
+  dev.off()  
+  
   # Normalize data
   seurat_obj <- NormalizeData(seurat_obj, normalization.method = "LogNormalize", scale.factor = 10000)
   # Identify variable features
