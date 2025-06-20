@@ -1,0 +1,27 @@
+---
+title: "Untitled"
+author: "tran chau"
+date: "2025-06-09"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+Arabidopsis_anno = read.csv("/Volumes/T7 Shield/Saturn/Tables/Arabidopsis_anno.csv")
+Tomato_anno = read.csv("/Volumes/T7 Shield/Saturn/Tables/Tomato_anno.csv")
+
+unique(Arabidopsis_anno$annotation)
+unique(Tomato_anno$annotation)
+
+cell_type_map <- data.frame(
+  arabidopsis_cell_type = c("Stele", "MZ", "Endodermis", NaN,"Endocortex", "Hair", "Rootcap", "Nonhair", "Xylem", "Cortex", "Phloem"),
+  tomato_cell_type = c( "Stele", "MZ",  "Endodermis", "Exodermis",NaN, "Hair",NaN,  "Nonhair", "Xylem" ,"Cortex" , "Phloem" )
+)
+
+# Write to CSV
+write.csv(cell_type_map, file = "/Volumes/T7 Shield/Saturn/Tables/arabidopsis_tomato_cell_type_map.csv", row.names = FALSE)
+```
+
