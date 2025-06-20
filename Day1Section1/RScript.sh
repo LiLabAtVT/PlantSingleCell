@@ -12,6 +12,10 @@ echo "Start date: $(date)"
 echo "Running on host: $HOSTNAME"
 scontrol show job --details $SLURM_JOB_ID
 
+# Load Maryam's folder
+GSL/2.7-GCC-13.2.0
+HDF5/1.14.3-gompi-2023b
+
 # Load R module
 module load R/4.4.2-gfbf-2024a
 
