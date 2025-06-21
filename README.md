@@ -60,7 +60,7 @@ Sys.setenv(R_LIBS_USER="/projects/songli_lab/PlantSingleCell2025/Day_2/env/")
 .libPaths()
 ```
 
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" width="20"/> Explore OMG on GitHub](https://github.com/LiLabAtVT/OrthoMarkerGeneGroups)
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" width="20"/> [Explore OMG on GitHub](https://github.com/LiLabAtVT/OrthoMarkerGeneGroups)
 
 
 ---
