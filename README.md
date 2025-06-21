@@ -1,29 +1,80 @@
-# Plant Single Cell Analysis Workshop and Mini-hackathon
-This is the github repository for a summer training camp for plant single cell analysis at Virginia Tech
+# 🌱 Plant Single Cell Analysis Workshop & Mini-Hackathon
+**📍 Virginia Tech | Summer Training Camp 🧡🦃**
 
+Welcome to the official repository for the **Plant Single Cell Analysis** summer camp! This 4-day workshop is designed to equip participants with cutting-edge tools, workflows, and insights into plant single-cell transcriptomics.
 
-## Day 1 Materials
-### Day 1 section 1 (Razan) Read mapping with ARC, and load data into Seurat.
-[View detailed setup instructions](./Day1Section1/README.md)
+---
 
-### Day 1 section 2 (Maryam) Integration across different runs, etc.
-[View detailed setup instructions](./Day1Section2-Integration/README.md)
+## 📅 Day 1: Foundations of Single-Cell Analysis
 
-## Day 2 Materials
-### Day 2 section 1 (CoPilot method)
-Dr. Wei-Che Hsu will present COPILOT[https://github.com/Hsu-Che-Wei/COPILOT]
+### 🧬 Section 1: Read Mapping & Seurat Integration
+**Presenter: Razan Alajoleen**
 
-### Day 2 section 2 (Michael Passalacqua)
-Mr. Michael Passalacqua from Cold Spring Harbor lab will present his co-expression proxy method[https://github.com/gillislab/Coexpression_Proxies]
+🧾 Topics Covered:
+- Read mapping using ARC
+- Loading single-cell data into Seurat
 
-### Day 2 section 3 
-Ms. Tran Chau will present Othro Marker Gene groups method.
-To quickly install the required packages, you need to run this
-```bash
+🔗 [Click here for detailed setup instructions](./Day1Section1/README.md)
+
+---
+
+### 🧬 Section 2: Cross-Sample Integration with Seurat
+**Presenter: Maryam Haghani**
+
+🧾 Topics Covered:
+- Sample integration
+- UMAP visualization: before vs. after integration
+- Gene co-expression of marker genes in *Arabidopsis* root
+
+🔗 [Click here for detailed setup instructions](./Day1Section2-Integration/README.md)
+
+---
+
+## 📅 Day 2: Advanced Methods and Tools
+
+### 🧠 Section 1: COPILOT – Cell Type Classification with Deep Learning
+**Presenter: Dr. Wei-Che Hsu**
+
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" width="20"/> [Explore COPILOT on GitHub](https://github.com/Hsu-Che-Wei/COPILOT)
+
+---
+
+### 🔬 Section 2: Co-expression Proxy Method
+**Presenter: Mr. Michael Passalacqua (Cold Spring Harbor Lab)**
+
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" width="20"/> [Explore Coexpression_Proxies on GitHub](https://github.com/gillislab/Coexpression_Proxies)
+
+---
+
+### 🌿 Section 3: Orthologous Marker Gene Groups (OMG)
+**Presenter: Tran Chau**
+
+🧾 Topics Covered:
+- Cross-species marker gene identification
+- Cell type annotation using orthologous gene sets
+
+🔧 To use required packages:
+```r
 Sys.setenv(R_LIBS_USER="/projects/songli_lab/PlantSingleCell2025/Day_2/env/")
 .libPaths(Sys.getenv("R_LIBS_USER"))
-.libPaths() 
+.libPaths()
 ```
-Use OMG for cell type annotation, https://github.com/LiLabAtVT/OrthoMarkerGeneGroups
 
-### Day 2 section 5 (Ms. Tran Chau will present the SATURN method walk-through)
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" width="20"/> Explore OMG on GitHub](https://github.com/LiLabAtVT/OrthoMarkerGeneGroups)
+
+
+---
+
+### 🔁 Section 5: SATURN Method Walk-through
+**Presenter: Tran Chau**
+
+🧾 A step-by-step overview of the SATURN method for cell annotation.
+
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" width="20"/> [Explore SATURN on GitHub](https://github.com/snap-stanford/SATURN)
+
+🔗 [Click here for detailed setup instructions](./Saturn_Plant/README.md)
+
+
+---
+
+We hope this workshop helps you discover the exciting frontier of plant single-cell genomics! 🌾
