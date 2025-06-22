@@ -101,7 +101,6 @@ proteome/embeddings/Solanum_lycopersicum.all_clean.fa_esm1b \
 
 To save time, you can use the precomputed ESM-1b embeddings by copying the tested output files directly
 ```bash
-mkdir proteome/embeddings/
 cp -r /projects/intro2gds/SATURN/protein_embeddings/embeddings/Solanum_lycopersicum.all_clean.fa_esm1b proteome/embeddings/Solanum_lycopersicum.all_clean.fa_esm1b
 
 cp -r /projects/intro2gds/SATURN/protein_embeddings/embeddings/Arabidopsis_thaliana.all_clean.fa_esm1b proteome/embeddings/Arabidopsis_thaliana.all_clean.fa_esm1b
