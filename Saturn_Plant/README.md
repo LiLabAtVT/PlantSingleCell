@@ -118,7 +118,7 @@ python map_gene_symbol_to_protein_ids.py \
 --fasta_path proteome/Arabidopsis_thaliana.fa \
 --save_path proteome/Arabidopsis_thaliana.gene_symbol_to_protein_ID.json
 ```
-<img src="Images/ATH_geneSymbol.gif" width="800"/>
+<img src="Images/ATH_geneSymbol.gif" width="1000"/>
 
 
 ```bash
@@ -128,7 +128,7 @@ python map_gene_symbol_to_protein_ids.py \
 --fasta_path proteome/Solanum_lycopersicum.fa \
 --save_path proteome/Solanum_lycopersicum.gene_symbol_to_protein_ID.json
 ```
-<img src="Images/Tom_geneSymbol.gif" width="800"/>
+<img src="Images/Tom_geneSymbol.gif" width="1000"/>
 
 ---
 
@@ -151,7 +151,7 @@ python convert_protein_embeddings_to_gene_embeddings.py \
 ```
 > ⏱ Estimated runtime: ~3 minutes
 
-<img src="Images/To_GeneEmbeding.gif" width="800"/>
+<img src="Images/To_GeneEmbeding.gif" width="1000"/>
 
 ---
 
@@ -181,7 +181,7 @@ Replace [YOUR_PATH] with the actual path where your SATURN project is located.
 cp /projects/intro2gds/SATURN/data/AnnData_plant.py data/
 python data/AnnData_plant.py
 ```
-<img src="Images/convert_to_AnnData.gif" width="800"/>
+<img src="Images/convert_to_AnnData.gif" width="1000"/>
 
 ---
 ## 🗂️ Optional Cell Type Mapping, if we have the cell type annotation column
