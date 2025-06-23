@@ -40,7 +40,7 @@ copilot(sample.name = "col0_toy", species.name = "Arabidopsis thaliana", transcr
 
 ## Please look up the parameters and more documentations at https://github.com/Hsu-Che-Wei/COPILOT
 
-## Here is the full codes to create the scKB_Copilot environment from scratch (The one described in the STARProtocol published back in 2022 is already outdated):
+## Here is the full codes to create the scKB_copilot environment from scratch (The one described in the STARProtocol published back in 2022 is already outdated):
 
 conda create -n scKB_copilot -c conda-forge -c bioconda r-base=4.1.3 kallisto=0.48.0 bustools=0.41.0 bioconductor-busparse=1.8.0 bioconductor-bsgenome=1.62.0 bioconductor-dropletutils=1.14.2 r-devtools=2.4.3 r-rjson=0.2.21 r-r2html=2.3.2 python=3.8 jupyterlab pyscaffold -y \
 conda activate scKB_copilot 
