@@ -21,10 +21,106 @@ To perform read alignment and gene counting for a single-cell RNA-seq dataset fr
    ```bash
    cd PlantSingleCell/Day1Section1
    ```
-4. **Submit your SLURM script**:
-   ```bash
-   sbatch Cellranger_mkref_Multiplespecies.sh
-   ```
+
+   ## 🧬 Mapping Single Nuclei RNA-seq Data
+
+---
+
+### **Step 1: Build a Combined Reference Genome**
+
+  ```bash
+  ./cellranger_mkref_Multiplespecies.sh
+  ```
+* ✅ Check that the output directory `Arabidopsis_thaliana_and_Pcap` has been created.
+
+---
+
+### **Step 2: Build Arabidopsis Genome Only**
+
+```bash
+./cellranger_mkref.sh
+---
+
+### **Step 3: Run Cell Ranger on Raw Data**
+
+* Run the scripts:
+
+  ```bash
+  ./CellRanger_Neg24hi_1_scRNAseq.sh
+  ./CellRanger_Pos24hpi_1_scRNAseq.sh
+  ```
+
+---
+
+### **Step 4: Generate Barcode Lists**
+
+* Run the following commands:
+
+  ```bash
+  awk -F',' 'NR > 1 && $4 == "Arabidopsis_thaliana" { print $1 }' gem_classification_Pos24hpi_1.csv > arabidopsis_barcodes.txt
+  awk -F',' 'NR > 1 && $4 == "Pcap" { print $1 }' gem_classification_Pos24hpi_1.csv > pcap_barcodes.txt
+  awk -F','  'NR > 1 && $4 == "Multiplet" { print $1 }' gem_classification_Pos24hpi_1.csv > multiplet_barcodes.txt
+  ```
+
+* ✅ This will generate:
+
+  * `arabidopsis_barcodes.txt` (plant)
+  * `pcap_barcodes.txt` (pathogen)
+  * `multiplet_barcodes.txt`
+
+---
+
+### **Step 5: Filter and Convert BAM to FASTQ**
+
+
+* Run the filtering script:
+
+  ```bash
+  ./Filter_and_convert_10X.sh
+  ```
+
+* ✅ This will create two output folders:
+
+  * `plant_fastq_output_<timestamp>`
+  * `pathogen_fastq_output_<timestamp>`
+
+* Inside the `plant_fastq_output` directory, combine the FASTQ files:
+
+  ```bash
+  cat bamtofastq_S1_L002_R1_00{1..9}.fastq.gz bamtofastq_S1_L002_R1_010.fastq.gz > Pos24hpi1_S1_L001_R1_001.fastq.gz
+
+  cat bamtofastq_S1_L002_R2_00{1..9}.fastq.gz bamtofastq_S1_L002_R2_010.fastq.gz > Pos24hpi1_S1_L001_R2_001.fastq.gz
+  ```
+
+---
+
+### **Step 6: Run Cell Ranger on Filtered Plant FASTQs and Control Sample (Neg24hpi)**
+
+* Run the script:
+
+  ```bash
+  ./CellRanger_Pos24hpi_1_scRNAseq_Plant_Fastq.sh
+  ./CellRanger_Neg24hi_1_scRNAseq.sh
+  ```
+
+---
+
+### **Step 7: Load and Integrate Data in R**
+
+* Open the script in RStudio:
+  `Integration_Pathogen_NonPathogen.R`
+  ```bash
+  ./RScript
+```
+---
+
+### 🔔 Note:
+
+Always double-check the directory paths in each script before running.
+
+
+
+
 
 ***Steps Covered***
 
