@@ -16,7 +16,7 @@ SUBSET_BAM="/projects/songli_lab/PlantSingleCell2025/Day_1/Session_1/Data/Conver
 
 # Define input files and output directories with unique timestamps
 # input_bam="possorted_genome_Pos24hpi_1_bam.bam"        # Main BAM 
-fileinput_bam="/projects/songli_lab/PlantSingleCell2025/Day_1/Session_1/Data/Convert_BAM_to_FASTQ/possorted_genome_Pos24hpi_1_bam.bam"  # Main BAM file
+input_bam="/projects/songli_lab/PlantSingleCell2025/Day_1/Session_1/Data/Convert_BAM_to_FASTQ/possorted_genome_Pos24hpi_1_bam.bam"  # Main BAM file
 plant_barcodes="arabidopsis_barcodes.txt"              # Plant barcodes file
 pathogen_barcodes="pcap_barcodes.txt"                  # Pathogen barcodes file
 plant_bam="plant_reads.bam"                            # Filtered plant BAM
