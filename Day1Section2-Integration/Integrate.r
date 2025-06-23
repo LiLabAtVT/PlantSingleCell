@@ -189,6 +189,30 @@ dimplot_combined <- function(
     return(combined)
   }
 
+# Overlay UMAP plots of individual samples into the same plot
+dimplot_umap_overlaid <- function(samples, file_name){
+  # extract UMAP coordinates and label by sample
+  umap_df_list <- lapply(names(samples), function(name) {
+    obj <- samples[[name]]
+    umap <- as.data.frame(Embeddings(obj, "umap"))
+    colnames(umap) <- c("UMAP_1", "UMAP_2")  # Ensure correct names
+    umap$orig.ident <- name
+    umap$cell <- rownames(umap)
+    return(umap)
+  })
+
+  # combine all into a single dataframe
+  umap_combined <- do.call(rbind, umap_df_list)
+
+  # plot UMAP colored by sample
+  umap_plot <- ggplot(umap_combined, aes(x = UMAP_1, y = UMAP_2, color = orig.ident)) +
+    geom_point(size = 0.5, alpha = 0.8) +
+    theme_minimal() +
+    labs(title = "Combined UMAP For Individual Samples", color = "Sample") +
+    theme(legend.position = "right")
+
+  ggsave(file_name, plot = umap_plot, width = 8, height = 6, dpi = 300)
+}
 
 ### 1. Loading data
 rds_files <- c("/projects/songli_lab/PlantSingleCell2025/Day_1/Session_2/Inputs/DAG6_root.slim.rds", 
@@ -225,9 +249,22 @@ if (!dir.exists("./Root")) {
   dir.create("./Root")
 }
 
+# umap plot per sample for merged
+merged <- NormalizeData(merged, verbose = TRUE)
+merged <- FindVariableFeatures(merged, selection.method = "vst", nfeatures = 2000, verbose = FALSE)
+merged <- ScaleData(merged, features = rownames(merged), verbose = TRUE)
+merged <- RunPCA(merged, verbose = TRUE)
+merged <- RunUMAP(merged, dims = 1:30, verbose = TRUE)
+
+dimplot(
+  obj       = merged,
+  group_by  = "orig.ident",
+  file_path = "./Root/UMAP plots/merged_UMAP_per-sample.png",
+  width = 7, height = 5
+)
+
 # saveRDS(merged, file = "./Root/merged.rds")
 #orders of magnitude faster than saveRDS() and gives smaller files
-qsave(merged, "./Root/merged.qs")
 
 print("Merged seurat object dimensions:")
 print(dim(merged)) # 22403 genes are common between these two samples
@@ -277,6 +314,9 @@ sc_cross_samples <- lapply(cross_samples, function(obj) {
   obj <- RunUMAP(obj, dims = 1:30, verbose = TRUE)
   return(obj)
 })
+
+dimplot_umap_overlaid(sc_cross_samples,
+ "./Root/UMAP plots/individual_umap_by_sample.png")
 
 print("Sample dimensions after merge-split and SCT:")
 print(sapply(sc_cross_samples, dim))
@@ -394,7 +434,7 @@ dimplot(
   )
 
 
-  dimplot(
+dimplot(
   obj       = integrated_rpca,
   group_by  = "orig.ident",
   file_path = "./Root/UMAP plots/integrated_RPCA_UMAP_per-sample.png",
