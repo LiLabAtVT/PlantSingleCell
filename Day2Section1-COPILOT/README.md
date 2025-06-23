@@ -38,7 +38,7 @@ R \
 library(COPILOT) \
 copilot(sample.name = "col0_toy", species.name = "Arabidopsis thaliana", transcriptome.name = "TAIR10", sample.stats = NULL, mt.pattern = "ATMG", mt.threshold = 5, cp.pattern = "ATCG", remove.doublet = FALSE, do.seurat = FALSE, do.annotation= FALSE, unwanted.genes = NULL, filtering.ratio = 1, min.UMI.low.quality = 1, min.UMI.high.quality = 3)
 
-## Please look up the paramenters at https://github.com/Hsu-Che-Wei/COPILOT
+## Please look up the parameters and more documentations at https://github.com/Hsu-Che-Wei/COPILOT
 
 
 
