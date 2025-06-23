@@ -4,6 +4,14 @@
 Welcome to the official repository for the **Plant Single Cell Analysis** summer camp! This 4-day workshop is designed to equip participants with cutting-edge tools, workflows, and insights into plant single-cell transcriptomics.
 
 ---
+### 🚀 Quick Start Instructions
+
+- [📦 Create Conda Environment](./Create_Conda_env)
+- [📦 Launch Apptainer Demo](./Launch_Apptainer)
+- [📦 Launch RStudio Guide](./Launch_RStudio)
+
+> Click on each folder to view the step-by-step setup instructions and example files.
+---
 
 ## 📅 Day 1: Foundations of Single-Cell Analysis
 
