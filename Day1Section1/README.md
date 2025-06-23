@@ -118,7 +118,7 @@ To perform read alignment and gene counting for a single-cell RNA-seq dataset fr
 
 Always double-check the directory paths in each script before running.
 
-
+---
 
 
 ***Steps Covered***
@@ -134,7 +134,7 @@ Always double-check the directory paths in each script before running.
 
 3. **Download Cell Ranger**
  https://www.10xgenomics.com/support/software/cell-ranger/downloads#download-links
-  
+ --- 
 ```
 #!/bin/bash
 #SBATCH --job-name=cellranger_mkref_multi      # Job name
