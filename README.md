@@ -96,10 +96,11 @@ We hope this workshop helps you discover the exciting frontier of plant single-c
   Lead organizer and PI for the Plant Single Cell Analysis Workshop
 
 ### 🧑‍💻 Core Organizing Team
-- **[Razan Alajoleen (Postdoctoral Research Associate)](https://github.com/RazanAj)** 
-- **[Tran N. Chau (Ph.D. Student)](https://github.com/ct-tranchau)**  
-- **[Maryam Haghani (Ph.D. Student)](https://github.com/Maryam-Haghani)** 
-- **[Sajib Acharjee Dip (Ph.D. Student)](https://github.com/Sajib-006)**
+- **[Razan Alajoleen](https://github.com/RazanAj)** - Postdoctoral Research Associate
+- **[Tran N. Chau](https://github.com/ct-tranchau)** - Ph.D. Student
+- **[Maryam Haghani](https://github.com/Maryam-Haghani)** - Ph.D. Student
+- **[Sajib Acharjee Dip](https://github.com/Sajib-006)** - Ph.D. Student
+- **[Sanchari Kundu](https://www.linkedin.com/in/sancharikundu/)** - Ph.D. Student
 
 > Special thanks to all contributors for making the Summer Training Camp a success! 🎉
 
