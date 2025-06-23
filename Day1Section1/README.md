@@ -35,13 +35,8 @@ To perform read alignment and gene counting for a single-cell RNA-seq dataset fr
 
 ---
 
-### **Step 2: Build Arabidopsis Genome Only**
 
-```bash
-./cellranger_mkref.sh
----
-
-### **Step 3: Run Cell Ranger on Raw Data**
+### **Step 2: Run Cell Ranger on Raw Data**
 
 * Run the scripts:
 
@@ -52,7 +47,7 @@ To perform read alignment and gene counting for a single-cell RNA-seq dataset fr
 
 ---
 
-### **Step 4: Generate Barcode Lists**
+### **Step 3: Generate Barcode Lists**
 
 * Run the following commands:
 
@@ -70,7 +65,7 @@ To perform read alignment and gene counting for a single-cell RNA-seq dataset fr
 
 ---
 
-### **Step 5: Filter and Convert BAM to FASTQ**
+### **Step 4: Filter and Convert BAM to FASTQ**
 
 
 * Run the filtering script:
@@ -93,7 +88,11 @@ To perform read alignment and gene counting for a single-cell RNA-seq dataset fr
   ```
 
 ---
+### **Step 5: Build Arabidopsis Genome Only**
 
+```bash
+./cellranger_mkref.sh
+---
 ### **Step 6: Run Cell Ranger on Filtered Plant FASTQs and Control Sample (Neg24hpi)**
 
 * Run the script:
@@ -118,7 +117,7 @@ To perform read alignment and gene counting for a single-cell RNA-seq dataset fr
 
 Always double-check the directory paths in each script before running.
 
-
+---
 
 
 
