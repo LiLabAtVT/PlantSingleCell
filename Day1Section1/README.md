@@ -109,7 +109,7 @@ To perform read alignment and gene counting for a single-cell RNA-seq dataset fr
 * Open the script in RStudio:
   `Integration_Pathogen_NonPathogen.R`
   
-  ```bash
+```bash
   ./RScript
 ```
 ---
@@ -135,7 +135,8 @@ Always double-check the directory paths in each script before running.
 3. **Download Cell Ranger**
  https://www.10xgenomics.com/support/software/cell-ranger/downloads#download-links
  --- 
-```
+ 
+```bash
 #!/bin/bash
 #SBATCH --job-name=cellranger_mkref_multi      # Job name
 #SBATCH --nodes=1                              # Number of nodes
@@ -200,7 +201,7 @@ Use `cellranger count` to generate:
 
 This step uses the **Build a Combined Reference** created in the previous step.
 ---
-```
+```bash
 #!/bin/bash
 #SBATCH --job-name=Cellranger_Analysis_Pos24hpi_1  # Job name
 #SBATCH --nodes=1                       # Number of nodes
@@ -230,7 +231,7 @@ date
 
 exit;
 ```
-```
+```bash
 #!/bin/bash
 #SBATCH --job-name=Cellranger_Analysis_Neg24hpi_1  # Job name
 #SBATCH --nodes=1                       # Number of nodes
@@ -268,7 +269,7 @@ Make sure the gem_classification.csv files for both Pos24 and Neg24 samples are 
 
 Run the following command:
 ---
-```
+```bash
 awk -F',' 'NR > 1 && $4 == "Arabidopsis_thaliana" { print $1 }' gem_classification_Pos24hpi_1.csv > arabidopsis_barcodes.txt 
 awk -F',' 'NR > 1 && $4 == "Pcap" { print $1 }' gem_classification_Pos24hpi_1.csv > pcap_barcodes.txt 
 awk -F, '$4 == "Multiplet" { print $1 }' gem_classification_Pos24hpi_1.csv > multiplet_barcodes.txt
@@ -289,7 +290,7 @@ https://github.com/10XGenomics/bamtofastq/releases
 3. Samtools:
    https://github.com/samtools/samtools/releases/download/1.22/samtools-1.22.tar.bz2
 ---
-```
+```bash
 #!/bin/bash
 #SBATCH --job-name=FilterConvert     # Job name
 #SBATCH --nodes=1                                # Number of nodes
@@ -353,7 +354,7 @@ echo "Process complete! FASTQ files for plant and pathogen are saved in their re
 ```
 ### Process FASTQ Files_Run Cell Ranger Count 
 
-```
+```bash
 #!/bin/bash
 #SBATCH --job-name=Cellranger_Analysis_Pos24hpi_1  # Job name
 #SBATCH --nodes=1                       # Number of nodes
