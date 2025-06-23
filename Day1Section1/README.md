@@ -91,7 +91,7 @@ To perform read alignment and gene counting for a single-cell RNA-seq dataset fr
 
 ```bash
 ./cellranger_mkref.sh
-
+```
 ---
 
 ### **Step 6: Run Cell Ranger on Filtered Plant FASTQs and Control Sample (Neg24hpi)**
@@ -102,7 +102,6 @@ To perform read alignment and gene counting for a single-cell RNA-seq dataset fr
   ./CellRanger_Pos24hpi_1_scRNAseq_Plant_Fastq.sh
   ./CellRanger_Neg24hi_1_scRNAseq.sh
   ```
-
 ---
 
 ### **Step 7: Load and Integrate Data in R**
