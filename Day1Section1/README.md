@@ -108,6 +108,7 @@ To perform read alignment and gene counting for a single-cell RNA-seq dataset fr
 
 * Open the script in RStudio:
   `Integration_Pathogen_NonPathogen.R`
+  
   ```bash
   ./RScript
 ```
