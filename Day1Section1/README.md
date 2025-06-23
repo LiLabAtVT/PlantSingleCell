@@ -118,7 +118,7 @@ To perform read alignment and gene counting for a single-cell RNA-seq dataset fr
 
 Always double-check the directory paths in each script before running.
 
----
+
 
 
 ***Steps Covered***
