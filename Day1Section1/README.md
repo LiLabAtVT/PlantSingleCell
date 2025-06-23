@@ -86,13 +86,14 @@ To perform read alignment and gene counting for a single-cell RNA-seq dataset fr
 
   cat bamtofastq_S1_L002_R2_00{1..9}.fastq.gz bamtofastq_S1_L002_R2_010.fastq.gz > Pos24hpi1_S1_L001_R2_001.fastq.gz
   ```
-
 ---
 ### **Step 5: Build Arabidopsis Genome Only**
 
 ```bash
 ./cellranger_mkref.sh
+
 ---
+
 ### **Step 6: Run Cell Ranger on Filtered Plant FASTQs and Control Sample (Neg24hpi)**
 
 * Run the script:
