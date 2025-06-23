@@ -22,7 +22,7 @@ unzip 10xv3_whitelist.txt.zip \
 gunzip Arabidopsis_thaliana.TAIR10.43.gtf.gz \
 chmod 777 scKB
 
-# Prepare for the genome for alignment with kallisto and bustools in R
+# Prepare the genome for alignment with kallisto and bustools in R
 R \ 
 library(BUSpaRse) \
 library(BSgenome.Athaliana.TAIR.TAIR9) # Load the Arabidopsis genome \
