@@ -17,8 +17,8 @@ cd /projects/songli_lab/PlantSingleCell2025/Day_2/ParticipantFolder/{your_name}
 git clone https://github.com/ohlerlab/scKB.git \
 
 cd ./scKB \
-unzip 10xv2_whitelist.txt.zip \
-unzip 10xv3_whitelist.txt.zip \
+unzip 10xv2_whitelist.txt.zip # cell barcode white list for 10x chemistry 2 \
+unzip 10xv3_whitelist.txt.zip # cell barcode white list for 10x chemistry 3 \
 gunzip Arabidopsis_thaliana.TAIR10.43.gtf.gz \
 chmod 777 scKB
 
