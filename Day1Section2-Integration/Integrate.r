@@ -227,7 +227,7 @@ if (!dir.exists("./Root")) {
 
 # saveRDS(merged, file = "./Root/merged.rds")
 #orders of magnitude faster than saveRDS() and gives smaller files
-qsave(merged, "./Root/merged.rds")
+qsave(merged, "./Root/merged.qs")
 
 print("Merged seurat object dimensions:")
 print(dim(merged)) # 22403 genes are common between these two samples
