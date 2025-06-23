@@ -86,3 +86,22 @@ Sys.setenv(R_LIBS_USER="/projects/songli_lab/PlantSingleCell2025/Day_2/env/")
 ---
 
 We hope this workshop helps you discover the exciting frontier of plant single-cell genomics! 🌾
+
+---
+
+## 👥 Organizers
+
+### 🔬 Principal Investigator
+- **[Song Li](https://github.com/songliVT)** – Associate Professor, Virginia Tech  
+  Lead organizer and PI for the Plant Single Cell Analysis Workshop
+
+### 🧑‍💻 Core Organizing Team
+- **[Razan Aj](https://github.com/RazanAj)** 
+- **[ct-tranchau](https://github.com/ct-tranchau)**  
+- **[Maryam Haghani](https://github.com/Maryam-Haghani)** 
+- **[Sajib-006](https://github.com/Sajib-006)**
+
+> Special thanks to all contributors for making the Summer Training Camp a success! 🎉
+
+---
+
