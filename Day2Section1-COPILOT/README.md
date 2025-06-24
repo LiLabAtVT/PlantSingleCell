@@ -59,6 +59,7 @@ BiocManager::install("BSgenome.Athaliana.TAIR.TAIR9") \
 install.packages(c('R2HTML','remotes','cluster', 'cowplot', 'fitdistrplus', 'future', 'future.apply', 'ggrepel', 'ggridges', 'ica', 'igraph', 'irlba', 'leiden', 'lmtest', 'patchwork', 'pbapply', 'plotly', 'RANN', 'RcppAnnoy', 'reticulate', 'tsne', 'Rtsne', 'sctransform', 'uwot', 'RcppEigen','rsvd')) \
 remotes::install_github('https://github.com/ekernf01/DoubletFinder', force = T) \
 install.packages("/projects/songli_lab/PlantSingleCell2025/Day_2/ParticipantFolder/CheWei/Seurat_3.1.5.tar.gz") \
+devtools::install_github(’ohlerlab/COPILOT’) \
 IRkernel::installspec()
 
 
