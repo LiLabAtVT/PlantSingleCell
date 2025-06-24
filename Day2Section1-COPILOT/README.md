@@ -1,14 +1,3 @@
-# load conda module
-module load Miniconda3/24.7.1-0
-
-# activate conda environment
-source activate /projects/songli_lab/PlantSingleCell2025/Day_2/scKB_copilot
-
-# inside R - load R environment
-Sys.setenv(R_LIBS_USER="/projects/songli_lab/PlantSingleCell2025/Day_2/scKB_copilot_R") \
-.libPaths(Sys.getenv("R_LIBS_USER")) \
-.libPaths()  # Confirm the change
-
 # Create and go to your own folder
 mkdir /projects/songli_lab/PlantSingleCell2025/Day_2/ParticipantFolder/{your_name} \
 cd /projects/songli_lab/PlantSingleCell2025/Day_2/ParticipantFolder/{your_name}
@@ -21,6 +10,17 @@ unzip 10xv2_whitelist.txt.zip # cell barcode white list for 10x chemistry 2 \
 unzip 10xv3_whitelist.txt.zip # cell barcode white list for 10x chemistry 3 \
 gunzip Arabidopsis_thaliana.TAIR10.43.gtf.gz \
 chmod 777 scKB
+
+# Load conda module
+module load Miniconda3/24.7.1-0
+
+# Activate conda environment
+source activate /projects/songli_lab/PlantSingleCell2025/Day_2/scKB_copilot
+
+# Inside R - load R environment
+Sys.setenv(R_LIBS_USER="/projects/songli_lab/PlantSingleCell2025/Day_2/scKB_copilot_R") \
+.libPaths(Sys.getenv("R_LIBS_USER")) \
+.libPaths()  # Confirm the change
 
 # Prepare the genome for alignment with kallisto and bustools in R
 R \
