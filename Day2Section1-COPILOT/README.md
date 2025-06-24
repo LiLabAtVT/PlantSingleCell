@@ -3,7 +3,7 @@ mkdir /projects/songli_lab/PlantSingleCell2025/Day_2/ParticipantFolder/{your_nam
 cd /projects/songli_lab/PlantSingleCell2025/Day_2/ParticipantFolder/{your_name}
 
 # Download the data, code and supplementary files and prepare them for use
-git clone https://github.com/ohlerlab/scKB.git \
+git clone https://github.com/ohlerlab/scKB.git 
 
 cd ./scKB \
 unzip 10xv2_whitelist.txt.zip # cell barcode white list for 10x chemistry 2 \
