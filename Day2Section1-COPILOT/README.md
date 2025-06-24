@@ -39,7 +39,9 @@ Sys.setenv(R_LIBS_USER="/projects/songli_lab/PlantSingleCell2025/Day_2/scKB_copi
 .libPaths(Sys.getenv("R_LIBS_USER")) \
 .libPaths() # Confirm the change \
 library(COPILOT) \
-copilot(sample.name = "col0_toy", species.name = "Arabidopsis thaliana", transcriptome.name = "TAIR10", sample.stats = NULL, mt.pattern = "ATMG", mt.threshold = 5, cp.pattern = "ATCG", remove.doublet = FALSE, do.seurat = FALSE, do.annotation= FALSE, unwanted.genes = NULL, filtering.ratio = 1, min.UMI.low.quality = 1, min.UMI.high.quality = 3)
+copilot(sample.name = "col0_toy", species.name = "Arabidopsis thaliana", transcriptome.name = "TAIR10", sample.stats = NULL, mt.pattern = "ATMG", mt.threshold = 5, cp.pattern = "ATCG", remove.doublet = FALSE, do.seurat = FALSE, do.annotation= FALSE, unwanted.genes = NULL, filtering.ratio = 1, min.UMI.low.quality = 1, min.UMI.high.quality = 3) \
+quit() ## Check out the col0_toy for results!
+
 
 ## Please look up the parameters and more documentations at https://github.com/Hsu-Che-Wei/COPILOT
 
