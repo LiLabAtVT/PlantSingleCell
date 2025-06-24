@@ -18,12 +18,12 @@ module load Miniconda3/24.7.1-0
 source activate /projects/songli_lab/PlantSingleCell2025/Day_2/scKB_copilot
 
 # Inside R - load R environment
+R \
 Sys.setenv(R_LIBS_USER="/projects/songli_lab/PlantSingleCell2025/Day_2/scKB_copilot_R") \
 .libPaths(Sys.getenv("R_LIBS_USER")) \
 .libPaths()  # Confirm the change
 
 # Prepare the genome for alignment with kallisto and bustools in R
-R \
 library(BUSpaRse) \
 library(BSgenome.Athaliana.TAIR.TAIR9) # Load the Arabidopsis genome \
 get_velocity_files(X = "./Arabidopsis_thaliana.TAIR10.43.gtf", L = 91, Genome = BSgenome.Athaliana.TAIR.TAIR9, out_path = "./", isoform_action = "separate", chrs_only=FALSE, style="Ensembl") # gtf is the genome annotation file, and 91 is the R2 length of the toy data (10x chemistry v3) \
