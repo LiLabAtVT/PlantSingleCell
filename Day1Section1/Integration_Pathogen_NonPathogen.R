@@ -19,8 +19,6 @@ process_seurat_object <- function(counts_data, project_name,
   # Compute mitochondrial percentage for Arabidopsis
 seurat_obj[["percent.mt"]] <- PercentageFeatureSet(seurat_obj, pattern = "^ATMG")
 
-  # Arabidopsis: no usable percent.mt, so set it to 0
-  seurat_obj[["percent.mt"]] <- 0
   
   # Filter based on quality control metrics
   seurat_obj <- subset(seurat_obj, subset = nFeature_RNA > 100 & 
